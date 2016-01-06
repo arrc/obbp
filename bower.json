@@ -1,0 +1,24 @@
+{
+  "name": "online blood bank project",
+  "description": "an online blood bank project",
+  "main": "index.js",
+  "authors": [
+    "arrC"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "online blood bank",
+    "blood bank"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "http://arrc.in/obbp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
