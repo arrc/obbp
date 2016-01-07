@@ -19,7 +19,6 @@ mongoose.connect('mongodb://localhost/obbp', function(err){
   }
 });
 
-
 /* ==========================================================
 	SETUP
 ============================================================ */
@@ -58,7 +57,7 @@ require('./server/routes.js')(app);
 	});
 
 	// '500' ----------------------------
-	app.use(function(req, res, err, next){
+	app.use(function(err, req, res, next){
 		console.error('error at %s\n', req.url,err.stack);
 		res.send(500, '<pre>' + err.stack + '</pre>');
 	});
@@ -67,7 +66,7 @@ require('./server/routes.js')(app);
 	APP
 ============================================================ */
 var server = app.listen(3000, function () {
-  console.log('App listening at http://localhost:3000');
+  console.log('App listening at http://localhost:',server.address().port);
 });
 
 exports = module.exports = app;
