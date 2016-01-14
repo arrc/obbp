@@ -26,8 +26,8 @@ mongoose.connect('mongodb://localhost/obbp', function(err){
 /* ==========================================================
 	SETUP
 ============================================================ */
+require('./server/config/passport.js')();
 app.use(passport.initialize());
-require('./server/config/passport.js')()
 app.set('showStackError', true);
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));

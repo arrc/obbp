@@ -12,5 +12,6 @@ module.exports = function(app){
 	// 'USER'
 	app.route('/login').post(user.login);
 	app.route('/signup').post(user.signup);
-	app.route('/api/me').get(user.me);
+	app.route('/api/profile').get(user.profile);
+	app.route('/users').get(user.users);
 };

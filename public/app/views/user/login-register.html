@@ -1,0 +1,106 @@
+<section class="row" ng-controller="HomeCtrl as vm">
+
+  <div class="large-4 columns">
+    <h4>Login</h4>
+		<form ng-submit="vm.login()">
+			<div>
+				<input type="text" placeholder="Username" data-ng-model="vm.credentials.username">
+			</div>
+			<div>
+				<input type="password" placeholder="Password" data-ng-model="vm.credentials.password">
+			</div>
+			<button type="submit" class="button small expand">Login</button>
+		</form>
+	</div>
+
+  <!-- register form -->
+  <div class="large-8 columns">
+    <!-- dob, gender, blood-group, weight mobile email address city date-last-donation donation-frequency -->
+    <h4>Register</h4>
+    <form ng-submit="vm.signup()">
+      <div class="row">
+        <!-- Username -->
+        <div class="large-6 columns">
+          <label>Username <input type="text" ng-model="vm.registrationData.username" /></label>
+        </div>
+        <!-- Password -->
+        <div class="large-6 columns">
+          <label>Password <input type="password" ng-model="vm.registrationData.password" /></label>
+        </div>
+      </div>
+      <!-- Name -->
+      <div class="row">
+        <div class="large-6 columns">
+          <label>First name <input type="text" ng-model="vm.registrationData.firstName" /></label>
+        </div>
+        <div class="large-6 columns">
+          <label>Last name <input type="text" ng-model="vm.registrationData.lastName" /></label>
+        </div>
+      </div>
+      <!-- email -->
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Email <input type="email" ng-model="vm.registrationData.email" /></label>
+        </div>
+        <!-- mobile -->
+        <div class="large-6 columns">
+          <label>Mobile <input type="text" ng-model="vm.registrationData.mobile" /></label>
+        </div>
+      </div>
+      <!-- address -->
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Full Address
+            <textarea rows="5" ng-model="vm.registrationData.address"></textarea>
+          </label>
+        </div>
+        <!-- state -->
+        <div class="large-6 columns">
+          <label>Select state
+            <select ng-model="vm.registrationData.state">
+              <option value="husker">Husker</option>
+              <option value="starbuck">Starbuck</option>
+              <option value="hotdog">Hot Dog</option>
+              <option value="apollo">Apollo</option>
+            </select>
+          </label>
+        </div>
+        <!-- pincode -->
+        <div class="large-6 columns">
+          <label>Pincode <input type="text" ng-model="vm.registrationData.pincode" /></label>
+        </div>
+      </div>
+      <!-- city -->
+      <div class="row">
+        <!-- dob -->
+        <div class="large-6 columns">
+          <label>Date of Birth <input type="text" ng-model="vm.registrationData.dateOfBirth" /></label>
+        </div>
+        <!-- gender -->
+        <div class="large-6 columns">
+          <label>Gender</label>
+          <input type="radio" name="gender" value="male" id="male" ng-model="vm.registrationData.gender"><label for="male">Male</label>
+          <input type="radio" name="gender" value="female" id="female" ng-model="vm.registrationData.gender"><label for="female">Female</label>
+          <input type="radio" name="gender" value="others" id="others" ng-model="vm.registrationData.gender"><label for="others">Others</label>
+        </div>
+      </div>
+      <div class="row">
+        <!-- weight -->
+        <div class="large-4 columns">
+          <label>Weight in Kg's <input type="text" ng-model="vm.registrationData.weight" /></label>
+        </div>
+        <!-- blood-group -->
+        <div class="large-4 columns">
+          <label>Blood group <input type="text" ng-model="vm.registrationData.bloodGroup" /></label>
+        </div>
+      </div>
+      <!-- Submit button -->
+      <div class="row">
+        <div class="large-5 large-centered columns">
+          <button  class="button small alert">Cancel</button>
+          <input type="submit" value="Register" class="button small success">
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

@@ -4,7 +4,18 @@ var mongoose = require('mongoose'),
 
 let UserSchema =  mongoose.Schema({
   username: String,
-  password: String
+  password: String,
+  firstName: String,
+  lastName: String,
+  email: String,
+  mobile: Number,
+  address: String,
+  pincode: Number,
+  state: String,
+  dateOfBirth: Date,
+  gender: String,
+  weight: Number,
+  bloodGroup: String
 });
 
 UserSchema.methods.authenticate = function(passwordToMatch) {
@@ -19,6 +30,14 @@ UserSchema.methods.generateHash = function(password) {
 // password check
 UserSchema.methods.validPassword = function(password) {
 	return bcrypt.compareSync(password, this.password);
+};
+
+UserSchema.options.toJSON = {
+  transform: function(doc, ret, options){
+    ret.id = ret._id;
+    delete ret.password;
+    return ret;
+  }
 };
 
 module.exports = mongoose.model('User', UserSchema);
