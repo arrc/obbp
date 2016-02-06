@@ -1,0 +1,53 @@
+<section ng-controller="SearchCtrl as vm">
+  <h3>Find donors</h3>
+
+<!-- search -->
+  <form ng-submit="vm.search()">
+    <div class="row">
+
+      <!-- blood group -->
+      <div class="large-3 columns">
+        <label>Blood Group
+          <select required ng-model="vm.searchForm.bg">
+            <option selected disabled value=''>-- select blood group --</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- state -->
+      <div class="large-3 columns">
+        <label>State
+          <select ng-model="vm.searchForm.state">
+            <option value=''>Any</option>
+            <option ng-repeat="state in vm.states" value="{{state}}">{{state}}</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- submit -->
+      <div class="large-3 columns">
+        <input type="submit" value="Search" class="button small success">
+      </div>
+    </div>
+  </form>
+
+<!-- results -->
+  <section>
+    <ul class="large-block-grid-4">
+      <li ng-repeat="result in vm.results">
+        <div>
+          <h3>{{ result.username }}</h3>
+          <p><strong>{{ result.bloodGroup }}</strong></p>
+          <p>{{ result.gender }}</p>
+          <p>{{ result.state }}</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+</section>

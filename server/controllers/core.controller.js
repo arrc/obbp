@@ -35,7 +35,7 @@ exports.initdb = function(req, res){
 						var state = chance.state({ full: true });
 						var street = chance.street();
 						var address = `${street}, ${state}`;
-						var bloodGroupChar = chance.character({pool: 'ABCDO'});
+						var bloodGroupChar = chance.character({pool: 'ABO'});
 						var bloodGroupPlusMinus = chance.character({pool: '-+'});
 						var bloodGroupFull = (`${bloodGroupChar}${bloodGroupPlusMinus}`);
 						usersArray.push({
