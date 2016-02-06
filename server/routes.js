@@ -6,12 +6,12 @@ module.exports = function(app){
 
 	// 'CORE' ----------------------------
 	app.route('/').get(core.index);
-	app.route('/api/test').get(core.test);
-  app.route('/api/db').get(core.db);
+  app.route('/initdb').get(core.initdb);
 
 	// 'USER'
 	app.route('/login').post(user.login);
 	app.route('/signup').post(user.signup);
 	app.route('/api/profile').get(user.profile);
 	app.route('/users').get(user.users);
+	app.route('/search').get(user.search);
 };

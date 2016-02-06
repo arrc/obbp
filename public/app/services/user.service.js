@@ -9,7 +9,6 @@
       var dfd = $q.defer();
 			$http.post('/login', credentials)
 				.success(function(res){
-          console.log(res);
 					Auth.setToken(res.token);
 					dfd.resolve(res);
 				})
@@ -22,11 +21,9 @@
 
     // signup
     o.signup = function(registrationData) {
-			console.log(registrationData);
 			var dfd = $q.defer();
 			$http.post('/signup', registrationData)
 				.success(function(res){
-          console.log(res);
 					Auth.setToken(res.token);
 					dfd.resolve(res);
 				})
@@ -43,6 +40,19 @@
 			dfd.resolve(Auth.clearToken());
 			return dfd.promise;
     };
+
+		// profile
+		o.profile = function(){
+			var dfd = $q.defer();
+			$http.get('/api/profile')
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
 
     return o;
 	};

@@ -10,6 +10,7 @@ Admin section:
   - manage camp schedules
   - manage blood stock details
   - statistics
+  - ping about upcoming blood camps
 
 Public:
   - search donors

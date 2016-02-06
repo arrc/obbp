@@ -1,6 +1,7 @@
 'use strict';
 var mongoose = require('mongoose'),
-  bcrypt = require('bcrypt-nodejs');
+  bcrypt = require('bcrypt-nodejs'),
+  crypto = require('crypto');
 
 let UserSchema =  mongoose.Schema({
   username: String,
@@ -8,14 +9,30 @@ let UserSchema =  mongoose.Schema({
   firstName: String,
   lastName: String,
   email: String,
-  mobile: Number,
+  mobile: String,
   address: String,
   pincode: Number,
   state: String,
-  dateOfBirth: Date,
+  dateOfBirth: String,
   gender: String,
   weight: Number,
-  bloodGroup: String
+  bloodGroup: String,
+  active: Boolean
+});
+
+/**
+* Hook a pre save method to hash the password
+*/
+UserSchema.pre('save', function(next) {
+  this.wasNew = this.isNew;
+  if(this.isNew){
+    if (this.password) {
+      this.password = this.generateHash(this.password);
+    }
+    next();
+  } else {
+    next();
+  }
 });
 
 UserSchema.methods.authenticate = function(passwordToMatch) {

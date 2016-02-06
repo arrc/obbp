@@ -72,3 +72,29 @@ exports.users = function(req, res){
     }
   });
 };
+
+// Serach - bloodGroup, state, name
+exports.search = function(req, res){
+  var bloodGroup = req.query.bg;
+  var state = req.query.state;
+  console.log(req.query);
+  
+  if (typeof state === 'undefined'){
+    User.find({'bloodGroup': bloodGroup}).exec(function(err, usersDoc){
+      if (err || !usersDoc) {
+        return res.status(400).json({message: 'Error finding users.'});
+      } else {
+        return res.status(200).json({ data: usersDoc, message: 'success'});
+      }
+    });
+  } else {
+    User.find({ $and: [{'bloodGroup': bloodGroup}, {'state': state }]}).exec(function(err, usersDoc){
+      if (err || !usersDoc) {
+        return res.status(400).json({message: 'Error finding users.'});
+      } else {
+        return res.status(200).json({ data: usersDoc, message: 'success'});
+      }
+    });
+  }
+
+};

@@ -23,7 +23,9 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.2",
+    "chance": "^0.8.0",
     "consolidate": "^0.13.1",
+    "crypto": "0.0.3",
     "express": "^4.13.3",
     "express-jwt": "^3.3.0",
     "jsonwebtoken": "^5.5.4",

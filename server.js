@@ -12,7 +12,7 @@ _              = require('lodash'),
 passport = require('passport'),
 jwt = require('jsonwebtoken'),
 expressJwt = require('express-jwt');
-console.log(config);
+
 /* ==========================================================
 	MONGOOSE
 ============================================================ */
