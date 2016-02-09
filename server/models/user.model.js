@@ -35,6 +35,10 @@ UserSchema.pre('save', function(next) {
   }
 });
 
+UserSchema.virtual('fullName').get(function(){
+  return `${this.firstName} ${this.lastName}`;
+});
+
 UserSchema.methods.authenticate = function(passwordToMatch) {
   return passwordToMatch === this.password;
 };
@@ -54,7 +58,8 @@ UserSchema.options.toJSON = {
     ret.id = ret._id;
     delete ret.password;
     return ret;
-  }
+  },
+  virtuals : true
 };
 
 module.exports = mongoose.model('User', UserSchema);

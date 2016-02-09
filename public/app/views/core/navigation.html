@@ -11,12 +11,14 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <li><a ng-hide="vm.isAuth" ui-sref="login-register">Login / Register</a></li>
+      <li><a ng-show="vm.isAuth" ui-sref="profile">profile</a></li>
       <li><a ng-show="vm.isAuth" ng-click="vm.logout()">Logout</a></li>
     </ul>
 
     <!-- Left Nav Section -->
     <ul class="left">
       <li><a ui-sref="search">Donors</a></li>
+      <li><a ui-sref="make-request">Request blood</a></li>
     </ul>
   </section>
 </nav>

@@ -1,0 +1,64 @@
+<section ng-controller="RequestCtrl as vm">
+  <div class="row">
+    <h3>Request blood</h3>
+
+    <!-- form -->
+    <form ng-submit="vm.makeRequest()">
+
+      <!-- blood group -->
+      <div class="row">
+        <div class="large-3 columns">
+          <label>Blood Group
+            <select required ng-model="vm.requestForm.bg">
+              <option selected disabled value=''>-- select blood group --</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <!-- location -->
+      <div class="row">
+        <div class="large-3 columns">
+          <label>State
+            <select ng-model="vm.requestForm.state">
+              <option value=''>Any</option>
+              <option ng-repeat="state in vm.states" value="{{state}}">{{state}}</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <!-- hospital -->
+      <div class="row">
+        <div class="large-3 columns">
+          <label> Hospital name
+            <input type="text" placeholder="hospital..." ng-model="vm.requestForm.hospital">
+          </label>
+        </div>
+      </div>
+
+      <!-- purpose -->
+      <div class="row">
+        <div class="large-3 columns">
+          <label> Purpose
+            <textarea placeholder="purpose..." ng-model="vm.requestForm.purpose"></textarea>
+          </label>
+        </div>
+      </div>
+
+      <!-- submit -->
+      <div class="row">
+        <div class="large-3 columns">
+          <input type="submit" value="Search" class="button small success">
+        </div>
+      </div>
+
+    </form>
+  </div>
+</section>
