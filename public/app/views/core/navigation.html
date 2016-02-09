@@ -11,6 +11,7 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <li><a ng-hide="vm.isAuth" ui-sref="login-register">Login / Register</a></li>
+      <li><a ng-show="vm.isAdmin" ui-sref="dashboard">Admin panel</a></li>
       <li><a ng-show="vm.isAuth" ui-sref="profile">profile</a></li>
       <li><a ng-show="vm.isAuth" ng-click="vm.logout()">Logout</a></li>
     </ul>

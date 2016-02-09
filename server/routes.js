@@ -4,6 +4,9 @@ module.exports = function(app){
 	var core = require('./controllers/core.controller.js');
 	var user = require('./controllers/user.controller.js');
 	var request = require('./controllers/request.controller.js');
+	var message = require('./controllers/message.controller.js');
+	var adminUser = require('./controllers/admin.user.controller.js');
+	var adminRequest = require('./controllers/admin.request.controller.js');
 
 	// 'CORE' ----------------------------
 	app.route('/').get(core.index);
@@ -17,5 +20,12 @@ module.exports = function(app){
 	app.route('/search').get(user.search);
 
 	// 'REQUEST'
-	app.route('/make-request').post(request.makeRequest);
+	app.route('/api/make-request').post(request.makeRequest);
+
+	// 'MESSAGE'
+	app.route('/api/message').post(message.createMessage);
+
+	// 'ADMIN USER'
+
+	// 'ADMIN REQUEST'
 };

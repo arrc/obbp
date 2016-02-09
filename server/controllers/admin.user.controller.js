@@ -6,48 +6,6 @@ let User = require('../models/user.model.js'),
   jwt = require('jsonwebtoken'),
   _ = require('lodash');
 
-exports.login = function(req, res, next){
-  passport.authenticate('local-login', function(err, user, info){
-    if (err || !user) {
-      res.status(400).json(info);
-    } else {
-      req.logIn(user, {session: false}, function(err){
-        if (err) {
-          res.status(400).json(err);
-        } else {
-          let payload = {
-            '_id' : user.id,
-            username: user.username,
-            isAdmin: user.isAdmin
-          };
-          var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  60*60*5 });
-          res.status(200).json({token: token, user: user});
-        }
-      });
-    }
-  })(req, res, next);
-};
-
-exports.signup = function(req, res, next){
-  passport.authenticate('local-signup', function(err, user, info){
-    if (err || !user) {
-      res.status(400).json(info);
-    } else {
-      req.logIn(user, {session: false}, function(err){
-        if (err) {
-          res.status(400).json(err);
-        } else {
-          let payload = {
-            '_id' : user.id,
-            username: user.username
-          };
-          var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  60*60*5 });
-          res.status(200).json({token: token, user: user});
-        }
-      });
-    }
-  })(req, res, next);
-};
 
 exports.profile = function(req, res){
   User.findOne({'username': req.user.username}).exec(function(err, userDoc){

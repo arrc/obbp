@@ -6,6 +6,7 @@ let RequestSchema = mongoose.Schema({
   location: String,
   hospital: String,
   purpose: String,
+  message: String,
   user: String,
   status: String,
   remarks: String

@@ -1,14 +1,14 @@
 (function(){
 	'use strict';
 
-	var Request = function($http, $q){
+	var Admin = function($http, $q){
     var o = {};
 
 		// make a blood request
-		o.makeRequest = function(requestFormData){
-console.log(requestFormData);
+		o.makeAdmin = function(messageFormData){
+console.log(messageFormData);
 			var dfd = $q.defer();
-			$http.post('/api/make-request', requestFormData)
+			$http.post('/api/message', messageFormData)
 				.success(function(res){
 					dfd.resolve(res.data);
 				})
@@ -24,9 +24,9 @@ console.log(requestFormData);
 	/* ==========================================================
 		setup
 	============================================================ */
-	angular.module('obbp').factory('Request',[
+	angular.module('obbp').factory('Admin',[
     '$http',
 		'$q',
-		Request
+		Admin
 	]);
 })();
