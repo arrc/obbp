@@ -1,16 +1,16 @@
 (function() {
   'use strict';
-	var AdminCtrl = function($http, User){
+	var AdminRequestsCtrl = function($http, Request){
 		var _this = this;
-    _this.test = "this is a test message";
+    _this.test = "this is a test message from AdminRequestsCtrl";
 	};
 
 	/* ==========================================================
 		setup
 	============================================================ */
-	angular.module('obbp').controller('AdminCtrl',[
+	angular.module('obbp').controller('AdminRequestsCtrl',[
 		'$http',
-    'User',
-		AdminCtrl
+    'Request',
+		AdminRequestsCtrl
 	]);
 })();

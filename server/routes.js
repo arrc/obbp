@@ -33,9 +33,9 @@ module.exports = function(app){
 	// 'ADMIN USER'
 
 	// 'ADMIN REQUEST'
-	app.route('/requests').get(adminRequest.retriveRequests);
-	app.route('/requests/:requestId').get(adminRequest.retriveRequest);
-	app.route('/requests/:requestId').put(adminRequest.updateRequest);
-	app.route('/requests/:requestId').delete(adminRequest.deletRequest);
+	app.route('/api/admin/requests').get(adminRequest.retriveRequests);
+	app.route('/api/admin/requests/:requestId').get(adminRequest.retriveRequest);
+	app.route('/api/admin/requests/:requestId').put(adminRequest.updateRequest);
+	app.route('/api/admin/requests/:requestId').delete(adminRequest.deletRequest);
 	app.param('requestId', adminRequest.requestById);
 };

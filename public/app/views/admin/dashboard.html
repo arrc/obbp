@@ -1,3 +1,23 @@
-<section>
-  <h3>Dashboard</h3>
+<section ng-controller="AdminCtrl as vm">
+  <div class="row">
+		<div class="columns">
+			<dl class="sub-nav">
+				<dt>Admin:</dt>
+				<dd ui-sref-active="active">
+					<a ui-sref="admin.users">Users</a>
+				</dd>
+				<dd ui-sref-active="active">
+					<a ui-sref="admin.requests">Requests</a>
+				</dd>
+				<dd ui-sref-active="active">
+					<a ui-sref="admin.stocks">Stock</a>
+				</dd>
+				<dd ui-sref-active="active">
+					<a ui-sref="admin.camps">Camps</a>
+				</dd>
+			</dl>
+		</div>
+	</div>
+
+	<div ui-view></div>
 </section>
