@@ -6,9 +6,9 @@
 
 		// make a blood request
 		o.makeRequest = function(requestFormData){
-console.log(requestFormData);
+			console.log(requestFormData);
 			var dfd = $q.defer();
-			$http.post('/api/make-request', requestFormData)
+			$http.post('/api/requests', requestFormData)
 				.success(function(res){
 					dfd.resolve(res.data);
 				})

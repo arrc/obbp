@@ -20,7 +20,8 @@ module.exports = function(app){
 	app.route('/search').get(user.search);
 
 	// 'REQUEST'
-	app.route('/api/make-request').post(request.makeRequest);
+	app.route('/api/requests').post(request.makeRequest);
+	app.route('/api/requests/:requestId').get(adminRequest.retriveRequest);
 
 	// 'MESSAGE'
 	app.route('/api/message').post(message.createMessage);
@@ -28,4 +29,9 @@ module.exports = function(app){
 	// 'ADMIN USER'
 
 	// 'ADMIN REQUEST'
+	app.route('/requests').get(adminRequest.retriveRequests);
+	app.route('/requests/:requestId').get(adminRequest.retriveRequest);
+	app.route('/requests/:requestId').put(adminRequest.updateRequest);
+	app.route('/requests/:requestId').delete(adminRequest.deletRequest);
+	app.param('requestId', adminRequest.requestById);
 };

@@ -3,13 +3,13 @@ var mongoose = require('mongoose');
 
 let RequestSchema = mongoose.Schema({
   bloodGroup: String,
-  location: String,
+  state: String,
   hospital: String,
   purpose: String,
   message: String,
-  user: String,
-  status: String,
+  user: {type: String, ref: 'User'},
+  status: {type: String, enum: ['approved', 'pending', 'rejected', 'processing'], default: 'pending'},
   remarks: String
 });
 
-module.exports = mongoose.model('Requset', RequestSchema);
+module.exports = mongoose.model('Request', RequestSchema);
