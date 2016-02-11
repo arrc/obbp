@@ -25,6 +25,10 @@ module.exports = function(app){
 
 	// 'MESSAGE'
 	app.route('/api/message').post(message.createMessage);
+	app.route('/api/message/:messageId').get(message.retriveMessage);
+	app.route('/api/messages').get(message.retriveMessages);
+	app.route('/api/message/:messageId').delete(message.deletMessage);
+	app.param('messageId', message.messageById);
 
 	// 'ADMIN USER'
 

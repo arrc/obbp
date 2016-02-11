@@ -1,0 +1,40 @@
+<section ng-controller="MessageCtrl as vm">
+  <div class="row">
+    <h3>Create message</h3>
+
+    <form ng-submit="vm.sendMessage()">
+      <div class="row">
+        <div class="large-3 columns">
+          <label>Receiver
+            <select required ng-model="vm.messageData.receiver">
+              <option value="5699003645c70fdf376a6d17">admin</option>
+              <option value="5699003645c70fdf376a6d19">donald</option>
+              <option value="5699003645c70fdf376a6d1b">tommy</option>
+              <option value="5699003645c70fdf376a6d1c">rose</option>
+              <option value="5699003645c70fdf376a6d20">nina</option>
+            </select>
+          </label>
+        </div>
+        <div class="large-4 columns">
+          <input type="text" ng-model="vm.messageData.message">
+        </div>
+        <div class="large-3 columns">
+          <input type="submit" class="button small" value="Send">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="row">
+    <h3>Messages</h3>
+    <div class="large-6 columns">
+      <button class="button large expanded" ng-click="vm.retriveMessages()">Load messages</button>
+      <pre>{{ vm.messages | json }}</pre>
+    </div>
+    <div class="large-6 columns">
+      <input type="text" ng-model="vm.messageId">
+      <button class="button large expanded" ng-click="vm.retriveMessage(vm.messageId)">Load message</button>
+      <pre>{{ vm.message | json }}</pre>
+    </div>
+  </div>
+</section>

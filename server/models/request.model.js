@@ -9,7 +9,8 @@ let RequestSchema = mongoose.Schema({
   message: String,
   user: {type: String, ref: 'User'},
   status: {type: String, enum: ['approved', 'pending', 'rejected', 'processing'], default: 'pending'},
-  remarks: String
+  remarks: String,
+  updated: Date
 });
 
 module.exports = mongoose.model('Request', RequestSchema);

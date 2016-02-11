@@ -29,6 +29,7 @@
     "angular-cache": "~4.4.3",
     "angular-PubSub": "angular.pubsub#*",
     "angular-jwt": "~0.0.9",
-    "ng-notify": "~0.7.1"
+    "ng-notify": "~0.7.1",
+    "ng-dialog": "~0.5.6"
   }
 }

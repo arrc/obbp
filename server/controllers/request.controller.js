@@ -7,6 +7,7 @@ let User = require('../models/user.model.js'),
 // make request
 exports.makeRequest = function(req, res){
   var b = req.body;
+  
   var data = {
     bloodGroup: b.bg,
     state: b.state,
@@ -15,6 +16,7 @@ exports.makeRequest = function(req, res){
     message: b.message,
     user: req.user._id,
   };
+
   Request.create(data, function(err, doc){
     if (err || !doc) {
       return res.status(400).json({message: 'Error finding users.'});
