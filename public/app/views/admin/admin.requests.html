@@ -1,6 +1,25 @@
-<section ng-controller="AdminRequestsCtrl as vm">
+<section ng-controller="AdminRequestsCtrl as vm" ng-init="vm.retriveRequests()">
   <div class="row">
     <h3>requests</h3>
-    {{ vm.test }}
+    <table>
+      <tbody>
+        <tr ng-repeat="request in vm.requests">
+          <td width="400">
+            <div class="panel" ng-click="vm.retriveRequest(request)">
+              <p>{{request.user.fullName}}</p>
+              <p>{{ request.purpose }}</p>
+              <section ng-if="request.remarks">
+                <hr>
+                <p>{{ request.remarks }}</p>
+              </section>
+              <div class="clearfix">
+                <small class="left label round info">{{ request.status }}</small>
+                <button class="right button tiny" ng-click="vm.deleteRequest(request)">Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

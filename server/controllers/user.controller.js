@@ -20,7 +20,8 @@ exports.login = function(req, res, next){
             username: user.username,
             isAdmin: user.isAdmin
           };
-          var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  60*60*5 });
+          // var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  60*60*5 });
+          var token = jwt.sign(payload, config.jwtSecretKey);
           res.status(200).json({token: token, user: user});
         }
       });

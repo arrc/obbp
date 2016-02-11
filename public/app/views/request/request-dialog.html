@@ -1,0 +1,18 @@
+<section>
+  <div class="row">
+    <form ng-submit="sendMessage()">
+      <p>{{ request.user.fullName }}</p>
+      <p>{{ request.purpose }}</p>
+      <input type="text" placeholder="remarks" ng-model="request.remarks">
+      <label>Status
+        <select required ng-model="request.status">
+          <option value="approved">approved</option>
+          <option value="pending">pending</option>
+          <option value="rejected">rejected</option>
+          <option value="processing">processing</option>
+        </select>
+      </label>
+      <input type="submit" class="button expand secondary small" value="Send">
+    </form>
+  </div>
+</section>

@@ -18,6 +18,32 @@
 			return dfd.promise;
 		};
 
+		// retrive a blood request
+		o.retriveRequests = function(){
+			var dfd = $q.defer();
+			$http.get('/api/admin/requests')
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
+		// retrive a single blood request
+		o.retriveRequest = function(requestId){
+			var dfd = $q.defer();
+			$http.get('/api/admin/requests/' + requestId)
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
     return o;
 	};
 
