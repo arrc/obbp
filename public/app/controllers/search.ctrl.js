@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-	var SearchCtrl = function($http, User, Search){
+	var SearchCtrl = function($http, ngDialog, User, Search){
 		var _this = this;
     _this.user = {};
     _this.test = "this a search page.";
@@ -12,6 +12,22 @@
         _this.results = data;
       });
     };
+
+    _this.dialog = function(user){
+      ngDialog.open({
+        template: 'app/views/message/message-dialog.html',
+        controller: ['$scope', 'lodash', 'Message', function($scope, lodash, Message){
+          $scope.userId = user._id;
+          $scope.fullName = user.fullName;
+          $scope.sendMessage = function(){
+            var messageData = lodash.extend($scope.messageData, {receiver: $scope.userId});
+            Message.sendMessage(messageData).then(function(data){
+              console.log("Message sent");
+            });
+          };
+        }]
+      });
+    };
 	};
 
 	/* ==========================================================
@@ -19,6 +35,7 @@
 	============================================================ */
 	angular.module('obbp').controller('SearchCtrl',[
 		'$http',
+    'ngDialog',
     'User',
     'Search',
 		SearchCtrl

@@ -43,6 +43,19 @@
 			return dfd.promise;
 		};
 
+		// retrive single message
+		o.deleteMessage = function(messageId){
+			var dfd = $q.defer();
+			$http.delete('/api/message/' + messageId)
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
     return o;
 	};
 

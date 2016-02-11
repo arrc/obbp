@@ -1,0 +1,12 @@
+<section>
+  <div class="row">
+    <h3>Create message</h3>
+
+    <form ng-submit="sendMessage()">
+      <p>{{ fullName }}</p>
+      <input type="hidden" ng-model="messageData.receiver" value="56bc3484c3ec91071c4dffa2">
+      <input type="text" ng-model="messageData.message">
+      <input type="submit" class="button small" value="Send">
+    </form>
+  </div>
+</section>

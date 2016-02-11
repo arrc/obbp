@@ -6,11 +6,11 @@ angular.module('obbp').config(['$stateProvider', function($stateProvider){
     url: '/message/create',
     templateUrl: 'app/views/message/message-form.html'
   })
-  .state('retrive-messages', {
+  .state('messages', {
     url: '/messages',
     templateUrl: 'app/views/message/messages.html'
   })
-  .state('retrive-message', {
+  .state('message', {
     url: '/message',
     templateUrl: 'app/views/message/message.html'
   });

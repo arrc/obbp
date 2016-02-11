@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-	var MessageCtrl = function($http, User, Message){
+	var MessageCtrl = function($http, ngNotify, User, Message){
 		var _this = this;
     _this.messages = [];
     _this.message = {};
@@ -22,6 +22,14 @@
         _this.message = data;
       });
     };
+
+    _this.deleteMessage = function(message){
+      var index = _this.messages.indexOf(message);
+      Message.deleteMessage(message._id).then(function(){
+        _this.messages.splice(index, 1);
+        ngNotify.set('Message deleted successfully ', 'error');
+      });
+    };
 	};
 
 	/* ==========================================================
@@ -29,6 +37,7 @@
 	============================================================ */
 	angular.module('obbp').controller('MessageCtrl',[
 		'$http',
+    'ngNotify',
     'User',
     'Message',
 		MessageCtrl

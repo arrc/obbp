@@ -1,0 +1,20 @@
+<section ng-controller="MessageCtrl as vm" ng-init="vm.retriveMessages()">
+  <div class="row">
+    <h3>Messages</h3>
+    <table>
+      <tbody>
+        <tr ng-repeat="message in vm.messages">
+          <td width="400">
+            <div class="panel">
+              <p>{{ message.message }}</p>
+              <div class="clearfix">
+                <small class="left">{{ message.sender.fullName }}</small>
+                <button class="right button tiny" ng-click="vm.deleteMessage(message)">Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

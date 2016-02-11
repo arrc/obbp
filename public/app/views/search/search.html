@@ -42,7 +42,7 @@
     <ul class="large-block-grid-4">
       <li ng-repeat="result in vm.results">
         <div>
-          <h3>{{ result.username }}</h3>
+          <h3 ng-click="vm.dialog(result)">{{ result.username }}</h3>
           <p><strong>{{ result.bloodGroup }}</strong></p>
           <p>{{ result.gender }}</p>
           <p>{{ result.state }}</p>
