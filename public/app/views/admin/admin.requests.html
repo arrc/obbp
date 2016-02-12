@@ -5,8 +5,8 @@
       <tbody>
         <tr ng-repeat="request in vm.requests">
           <td width="400">
-            <div class="panel" ng-click="vm.retriveRequest(request)">
-              <p>{{request.user.fullName}}</p>
+            <div class="panel">
+              <p ng-click="vm.retriveRequest(request)">{{request.user.fullName}}</p>
               <p>{{ request.purpose }}</p>
               <section ng-if="request.remarks">
                 <hr>
@@ -14,6 +14,7 @@
               </section>
               <div class="clearfix">
                 <small class="left label round info">{{ request.status }}</small>
+                <button class="left button tiny secondary" ng-click="vm.sendMessage(request)">Message</button>
                 <button class="right button tiny" ng-click="vm.deleteRequest(request)">Delete</button>
               </div>
             </div>

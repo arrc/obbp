@@ -18,6 +18,7 @@ module.exports = [
   'app/controllers/message.ctrl.js',
   'app/controllers/admin.ctrl.js',
   'app/controllers/admin.requests.ctrl.js',
+  'app/controllers/admin.users.ctrl.js',
   // routes
   'app/routes/user.route.js',
   'app/routes/search.route.js',

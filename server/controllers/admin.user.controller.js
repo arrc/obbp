@@ -6,6 +6,30 @@ let User = require('../models/user.model.js'),
   jwt = require('jsonwebtoken'),
   _ = require('lodash');
 
+exports.retriveUsers = function(req, res){
+  User.find({'isActive': false}).exec(function(err, usersDoc){
+    if (err || !usersDoc) {
+      return res.status(400).json({message: 'Error finding users.'});
+    } else {
+      var userDocJson = usersDoc.map(function(user){
+        return user.toJSON();
+      });
+      res.status(200).json({ data: userDocJson, message: 'success'});
+    }
+  });
+};
+
+exports.updateUser = function(req, res){
+  var user = req.selectedUser;
+  user = _.extend(user, req.body);
+  user.save(function(err, doc){
+    if (err || !doc) {
+      return res.status(400).json({message: 'Error finding doc.'});
+    } else {
+      return res.status(200).json({ data: doc, message: 'success'});
+    }
+  });
+};
 
 exports.profile = function(req, res){
   User.findOne({'username': req.user.username}).exec(function(err, userDoc){
@@ -15,19 +39,6 @@ exports.profile = function(req, res){
       var userDocJson = userDoc.toJSON();
       var data = _.omit(userDocJson, 'password');
       res.status(200).json({ data: data, message: 'success'});
-    }
-  });
-};
-
-exports.users = function(req, res){
-  User.find({}).exec(function(err, usersDoc){
-    if (err || !usersDoc) {
-      return res.status(400).json({message: 'Error finding users.'});
-    } else {
-      var userDocJson = usersDoc.map(function(user){
-        return user.toJSON();
-      });
-      res.status(200).json({ data: userDocJson, message: 'success'});
     }
   });
 };
@@ -56,4 +67,13 @@ exports.search = function(req, res){
     });
   }
 
+};
+
+exports.userById = function(req, res, next, userId){
+  User.findById(userId).exec(function(err, doc){
+    if (err) return next(err);
+		if (!doc) return next(new Error('Failed to load request ' + userId));
+		req.selectedUser = doc;
+		next();
+  });
 };

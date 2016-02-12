@@ -31,6 +31,9 @@ module.exports = function(app){
 	app.param('messageId', message.messageById);
 
 	// 'ADMIN USER'
+	app.route('/api/admin/users').get(adminUser.retriveUsers);
+	app.route('/api/admin/users/:userId').put(adminUser.updateUser);
+	app.param('userId', adminUser.userById);
 
 	// 'ADMIN REQUEST'
 	app.route('/api/admin/requests').get(adminRequest.retriveRequests);

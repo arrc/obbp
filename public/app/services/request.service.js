@@ -44,6 +44,32 @@
 			return dfd.promise;
 		};
 
+		// update blood request
+		o.updateRequest = function(request){
+			var dfd = $q.defer();
+			$http.put('/api/admin/requests/' + request._id, request)
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
+		// retrive a single blood request
+		o.deleteRequest = function(requestId){
+			var dfd = $q.defer();
+			$http.delete('/api/admin/requests/' + requestId)
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
     return o;
 	};
 

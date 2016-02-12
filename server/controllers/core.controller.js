@@ -26,7 +26,7 @@ exports.initdb = function(req, res){
 					gender: 'male',
 					bloodGroup: 'A+',
 					weight: 23,
-					active: true,
+					isActive: true,
 					isAdmin: true
 				 }
 			];
@@ -53,7 +53,7 @@ exports.initdb = function(req, res){
 							gender: chance.gender(),
 							bloodGroup: bloodGroupFull,
 							weight: chance.integer({min: 50, max: 180}),
-							active: chance.bool(),
+							isActive: chance.bool(),
 							isAdmin: false
 					});
 				});

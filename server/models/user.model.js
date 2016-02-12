@@ -17,8 +17,9 @@ let UserSchema =  mongoose.Schema({
   gender: String,
   weight: Number,
   bloodGroup: String,
-  active: Boolean,
-  isAdmin: Boolean
+  isActive: {type: Boolean, default: false},
+  isAdmin: {type: Boolean, default: false},
+  remarks: String
 });
 
 /**

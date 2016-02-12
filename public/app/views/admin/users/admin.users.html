@@ -1,6 +1,12 @@
-<section>
+<section ng-controller="AdminUsersCtrl as vm" ng-init="vm.retriveUsers()">
   <div class="row">
     <h3>Users</h3>
-    {{ vm.test }}
+    <section ng-repeat="user in vm.users">
+      <p ng-click="vm.retriveUser(user)">{{ user.fullName}}</p>
+      <div class="clearfix">
+        <button class="left button tiny secondary" ng-click="vm.sendMessage(user)">Message</button>
+        <button class="right button tiny warn" ng-click="vm.deleteUser(user)">Delete</button>
+      </div>
+    </section>
   </div>
 </section>

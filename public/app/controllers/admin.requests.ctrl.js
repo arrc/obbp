@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-	var AdminRequestsCtrl = function($http, ngDialog, Request){
+	var AdminRequestsCtrl = function($http, ngDialog, ngNotify, Request){
 		var _this = this;
     _this.test = "this is a test message from AdminRequestsCtrl";
 
@@ -15,10 +15,11 @@
         template: 'app/views/request/request-dialog.html',
         controller: ['$scope', 'lodash', 'Request', function($scope, lodash, Request){
           $scope.request = request;
-          $scope.sendMessage = function(){
-            var messageData = lodash.extend($scope.messageData, {receiver: $scope.userId});
-            Request.sendMessage(messageData).then(function(data){
-              console.log("Message sent");
+          $scope.updateRequest = function(){
+            console.log($scope.request);
+            Request.updateRequest($scope.request).then(function(data){
+              console.log(data);
+              ngNotify.set('Update request successfully ', 'success');
             });
           };
         }]
@@ -32,6 +33,22 @@
         ngNotify.set('Request deleted successfully ', 'error');
       });
     };
+
+    _this.sendMessage = function(request){
+      ngDialog.open({
+        template: 'app/views/message/message-dialog.html',
+        controller: ['$scope', 'lodash', 'Message', function($scope, lodash, Message){
+          $scope.userId = request.user._id;
+          $scope.fullName = request.user.fullName;
+          $scope.sendMessage = function(){
+            var messageData = lodash.extend($scope.messageData, {receiver: $scope.userId});
+            Message.sendMessage(messageData).then(function(data){
+              console.log("Message sent");
+            });
+          };
+        }]
+      });
+    };
 	};
 
 	/* ==========================================================
@@ -40,6 +57,7 @@
 	angular.module('obbp').controller('AdminRequestsCtrl',[
 		'$http',
     'ngDialog',
+    'ngNotify',
     'Request',
 		AdminRequestsCtrl
 	]);

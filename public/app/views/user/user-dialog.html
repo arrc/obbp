@@ -1,0 +1,25 @@
+<section>
+  <div class="row">
+    <form ng-submit="updateUser()">
+      <p>{{ user.fullName }}</p>
+      <p>{{ user.username }}</p>
+
+      <input type="text" placeholder="remarks" ng-model="user.remarks">
+
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Activate user account?</label>
+          <input type="radio" name="isActive" ng-model="user.isActive" value="true" id="isActiveTrue"><label for="isActiveTrue">Yes</label>
+          <input type="radio" name="isActive" ng-model="user.isActive" value="false" id="isActiveFalse"><label for="isActiveFalse">No</label>
+        </div>
+
+        <div class="large-6 columns">
+          <label>Make this user an Admin?</label>
+          <input type="radio" name="isAdmin" ng-model="user.isAdmin" value="true" id="isAdminTrue"><label for="isAdminTrue">Yes</label>
+          <input type="radio" name="isAdmin" ng-model="user.isAdmin" value="false" id="isAdminFalse"><label for="isAdminFalse">No</label>
+        </div>
+      </div>
+      <input type="submit" class="button expand secondary small" value="Send">
+    </form>
+  </div>
+</section>
