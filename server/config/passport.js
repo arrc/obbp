@@ -34,6 +34,7 @@ module.exports = function(){
       User.findOne({ username: username }, function(err, existingUser){
         if (err) return done(err);
         if (existingUser) return done(null, false, { message: 'User already exist' });
+        console.log(req.body);
         // create user
         var newUser = new User();
         var b = req.body;

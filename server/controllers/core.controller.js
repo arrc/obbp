@@ -9,6 +9,10 @@ exports.index = function(req, res, next) {
 	res.render('index', {clientScripts : clientScripts});
 };
 
+exports.testPost = function(req, res){
+	console.log(req.body);
+}
+
 exports.initdb = function(req, res){
 	User.find({}, function(err, docs){
 		if(docs.length === 0) {

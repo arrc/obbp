@@ -11,6 +11,7 @@ module.exports = function(app){
 	// 'CORE' ----------------------------
 	app.route('/').get(core.index);
   app.route('/initdb').get(core.initdb);
+  app.route('/test').post(core.testPost);
 
 	// 'USER'
 	app.route('/login').post(user.login);
