@@ -43,7 +43,7 @@ exports.signup = function(req, res, next){
             username: user.username
           };
           var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  60*60*5 });
-          res.status(200).json({token: token, user: user});
+          res.status(200).json({token: token, user: user, message: 'Signup successfull.'});
         }
       });
     }
