@@ -28,6 +28,8 @@
     "crypto": "0.0.3",
     "express": "^4.13.3",
     "express-jwt": "^3.3.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
     "jsonwebtoken": "^5.5.4",
     "kerberos": "0.0.17",
     "lodash": "^3.10.1",
@@ -37,5 +39,8 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "gulp-nodemon": "^2.0.6"
   }
 }
