@@ -1,3 +1,10 @@
+body {
+  background: #F2F2F2; }
+
+pre {
+  color: grey;
+  font-size: .8rem; }
+
 meta.foundation-version {
   font-family: "/5.5.3/"; }
 
@@ -2052,10 +2059,165 @@ meta.foundation-mq-topbar {
 nav.top-bar li a {
   text-transform: uppercase; }
 
+footer {
+  background: #CA6A6A; }
+
 .main-footer {
-  background-color: #CA6A6A;
   color: #E0CDC7; }
-  .main-footer a {
+  .main-footer h4 {
     color: #E0CDC7; }
-  .main-footer .sub-footer {
-    background-color: rgba(216, 216, 216, 0.4); }
+  .main-footer ul li {
+    list-style: none;
+    font-size: .9rem; }
+
+.sub-footer {
+  color: #E0CDC7;
+  line-height: 14px;
+  background: rgba(215, 215, 215, 0.4);
+  text-align: center; }
+  .sub-footer a {
+    color: #E0CDC7;
+    text-decoration: underline; }
+  .sub-footer p {
+    font-size: .7rem;
+    margin-bottom: 5px; }
+
+body {
+  background: #F2F2F2; }
+
+pre {
+  color: grey;
+  font-size: .8rem; }
+
+.profile-divider {
+  height: 50px;
+  background-color: #DDD5D3; }
+
+.profile-info-header {
+  background-color: #F5F5F5;
+  height: 200px;
+  position: relative; }
+  .profile-info-header .profile-info-container {
+    width: 450px;
+    margin: 20px 150px; }
+  .profile-info-header .pic-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    border: 2px solid gray; }
+  .profile-info-header .pic-info h1, .profile-info-header .pic-info h4 {
+    color: #C8B6B2;
+    margin-bottom: 0; }
+  .profile-info-header .profile-edit-button {
+    background: #DCD5D3;
+    color: #C8B6B2;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    position: absolute;
+    top: 40px;
+    right: 0px; }
+
+.all-messages-container .amc-title-container {
+  margin: 10px 0; }
+  .all-messages-container .amc-title-container h2 {
+    color: #999999;
+    font-weight: bold; }
+  .all-messages-container .amc-title-container .amc-count {
+    background: #D8D8D8;
+    width: 50px;
+    text-align: center; }
+
+.messages-list-container {
+  background: #fff; }
+  .messages-list-container .mlc-single-message {
+    margin-bottom: 5px; }
+    .messages-list-container .mlc-single-message .single-message-text {
+      font-size: 15px;
+      line-height: 19px;
+      color: #999999;
+      padding: 10px;
+      margin-bottom: 0; }
+    .messages-list-container .mlc-single-message .single-message-meta p {
+      color: #C6B7B3;
+      font-size: 0.8rem;
+      margin-bottom: 0; }
+    .messages-list-container .mlc-single-message .single-message-meta .single-message-sender {
+      margin-left: 10px; }
+    .messages-list-container .mlc-single-message .single-message-meta .single-message-date {
+      margin-left: 50px; }
+    .messages-list-container .mlc-single-message .single-message-meta .message-delete-button {
+      padding: 5px;
+      width: 50px;
+      margin-bottom: 5px;
+      background: #DCD5D3;
+      color: #C8B6B2;
+      font-size: 16px;
+      line-height: 12px; }
+
+.search-divider {
+  height: 50px;
+  background-color: #DDD5D3; }
+
+.search-container {
+  background: #F5F5F5;
+  height: 150px;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+
+.search-form {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+  .search-form input[type="submit"] {
+    padding-top: 7px; }
+  .search-form input[type="text"], .search-form select, .search-form input[type="submit"] {
+    border-color: #D0C9C9;
+    border-width: 2px;
+    font-size: 20px;
+    height: 40px; }
+  .search-form input[type="text"]:focus,
+  .search-form select:focus,
+  .search-form input[type="submit"]:focus {
+    border-color: #9C9191;
+    border-width: 2px;
+    font-size: 20px;
+    height: 40px; }
+  .search-form label {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #A34C4C; }
+
+.user-profile-container {
+  width: 230px;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer; }
+  .user-profile-container .upc-pic {
+    padding-top: 10px;
+    background: #EEDCDC; }
+    .user-profile-container .upc-pic img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      border: 2px solid gray; }
+    .user-profile-container .upc-pic p {
+      margin-bottom: 0;
+      color: #8B572A; }
+  .user-profile-container .upc-info {
+    padding: 10px;
+    background: #D3C3C0;
+    color: #fff; }
+    .user-profile-container .upc-info p {
+      margin-bottom: 0; }
+  .user-profile-container .upc-message {
+    background: #A95252; }
+    .user-profile-container .upc-message h4 {
+      margin-top: 0;
+      color: #E6E0E0; }
+      .user-profile-container .upc-message h4 i {
+        margin-right: 5px; }

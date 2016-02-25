@@ -1,51 +1,69 @@
 <section ng-controller="SearchCtrl as vm">
-  <h3>Find donors</h3>
 
-<!-- search -->
-  <form ng-submit="vm.search()">
-    <div class="row">
-
-      <!-- blood group -->
-      <div class="large-3 columns">
-        <label>Blood Group
-          <select required ng-model="vm.searchForm.bg">
-            <option selected disabled value=''>-- select blood group --</option>
-            <option value="A+">A+</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-            <option value="B-">B-</option>
-            <option value="O+">O+</option>
-            <option value="O-">O-</option>
-          </select>
-        </label>
-      </div>
-
-      <!-- state -->
-      <div class="large-3 columns">
-        <label>State
-          <select ng-model="vm.searchForm.state">
-            <option value=''>Any</option>
-            <option ng-repeat="state in vm.states" value="{{state}}">{{state}}</option>
-          </select>
-        </label>
-      </div>
-
-      <!-- submit -->
-      <div class="large-3 columns">
-        <input type="submit" value="Search" class="button small success">
-      </div>
+  <div class="row search-container">
+    <div class="large-9 large-centered columns search-form">
+      <form ng-submit="vm.search()">
+        <div class="row">
+          <!-- blood group -->
+          <div class="large-4 columns">
+            <label>Blood Group
+              <select required ng-model="vm.searchForm.bg">
+                <option selected disabled value=''>-- select blood group --</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </label>
+          </div>
+          <!-- state -->
+          <div class="large-4 columns">
+            <label>State
+              <select ng-model="vm.searchForm.state">
+                <option value=''>Any</option>
+                <option ng-repeat="state in vm.states" value="{{state}}">{{state}}</option>
+              </select>
+            </label>
+          </div>
+          <div class="large-4 columns">
+            <label for="search">Search</label>
+            <input type="submit" class="button tiny secondary" value="Search" id="search">
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
+
+  <div class="row search-divider"></div>
 
 <!-- results -->
-  <section>
+  <section class="row">
     <ul class="large-block-grid-4">
       <li ng-repeat="result in vm.results">
-        <div>
+        <!-- <div>
           <h3 ng-click="vm.dialog(result)">{{ result.username }}</h3>
           <p><strong>{{ result.bloodGroup }}</strong></p>
           <p>{{ result.gender }}</p>
           <p>{{ result.state }}</p>
+        </div> -->
+
+        <div class="user-profile-container">
+          <section class="upc-pic" ng-click="vm.dialog(result)">
+            <div class="profile-pic">
+              <img src="images/user.jpg">
+            </div>
+            <p>{{ result.username }}</p>
+          </section>
+          <section class="upc-info">
+            <p>{{ result.fullName }}</p>
+            <p>{{ result.bloodGroup }}</p>
+            <p>{{ result.state }}</p>
+          </section>
+          <section class="upc-message">
+            <h4><i class="fa fa-envelope"></i>Send message</h4>
+          </section>
         </div>
       </li>
     </ul>

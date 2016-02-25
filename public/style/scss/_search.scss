@@ -1,0 +1,99 @@
+.search-divider {
+  height: 50px;
+  background-color: #DDD5D3;
+}
+
+.search-container {
+  background: #F5F5F5;
+  height: 150px;
+  position: relative; // zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.search-form {
+
+  // zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+  input[type="submit"] {
+    padding-top: 7px
+  }
+
+  input[type="text"],select,input[type="submit"] {
+    border-color: #D0C9C9;
+    border-width: 2px;
+    font-size: 20px;
+    height: 40px;
+  }
+
+  input[type="text"]:focus,
+  select:focus,
+  input[type="submit"]:focus {
+    border-color: #9C9191;
+    border-width: 2px;
+    font-size: 20px;
+    height: 40px;
+  }
+
+  label {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #A34C4C;
+  }
+}
+
+// USER PROFILE
+.user-profile-container {
+  width: 230px;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+
+  .upc-pic {
+    padding-top: 10px;
+    background: #EEDCDC;
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      border: 2px solid gray;
+    }
+
+    p {
+      margin-bottom: 0;
+      color: #8B572A;
+    }
+  }
+
+  .upc-info {
+    padding: 10px;
+    background: #D3C3C0;
+    color: #fff;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .upc-message {
+    background: #A95252;
+
+
+    h4 {
+      margin-top: 0;
+      color: #E6E0E0;
+
+      i {
+        margin-right: 5px;
+      }
+
+    }
+  }
+}

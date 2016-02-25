@@ -1,17 +1,32 @@
-.main-footer {
-  background-color: #CA6A6A;
-  color: #E0CDC7;
+footer {
+  background: #CA6A6A;
+}
 
-  a {
+.main-footer {
+  h4 {
     color: #E0CDC7;
   }
+  color: #E0CDC7;
 
-  .sub-footer {
-    background-color: rgba(216, 216, 216, 0.4);
+  ul li {
+    list-style: none;
+    font-size: .9rem;
   }
 }
 
-// .main-footer > .sub-footer {
-//   background-color: rgba(216, 216, 216, 40);
-//   // color: #E0CDC7
-// }
+.sub-footer {
+  color: #E0CDC7;
+  line-height: 14px;
+  background: rgba(215,215,215,0.40);
+  text-align: center;
+
+  a {
+    color: #E0CDC7;
+    text-decoration: underline;
+  }
+
+  p {
+    font-size: .7rem;
+    margin-bottom: 5px;
+  }
+}

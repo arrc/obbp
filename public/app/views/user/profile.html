@@ -1,4 +1,43 @@
-<section class="row" ng-controller="UserCtrl as vm">
-  <h3>{{ vm.user.username }} | {{ vm.user.bloodGroup }}</h3><hr>
-  <pre>{{ vm.user | json }}</pre>
+<section ng-controller="UserCtrl as vm">
+
+<!-- profile -->
+    <div class="row profile-info-header">
+      <div class="clearfix profile-info-container">
+          <img class="left pic-image" src="images/user.jpg">
+          <section class="right pic-info">
+            <h1>{{ vm.user.fullName }}</h1>
+            <h4>{{ vm.user.bloodGroup }}</h4>
+            <h4>{{ vm.user.state }}</h4>
+          </section>
+      </div>
+      <button class="button tiny secondary profile-edit-button">EDIT</button>
+    </div>
+
+<!-- divider -->
+    <div class="row profile-divider"></div>
+
+<!-- messages -->
+    <div class="row" ng-controller="MessageCtrl as vm" ng-init="vm.retriveMessages()">
+      <div class="large-9 large-centered columns all-messages-container">
+        <!-- message count -->
+        <section class="clearfix amc-title-container">
+          <h2 class="left  amc-title">MESSAGES</h2>
+          <h2 class="right amc-count">6</h2>
+        </section>
+
+        <!-- messages list -->
+        <section class="messages-list-container">
+          <section class="mlc-single-message" ng-repeat="message in vm.messages">
+            <p class="single-message-text">{{ message.message }}</p>
+            <section class="clearfix single-message-meta">
+              <p class="left single-message-sender">Sender: {{ message.sender.fullName }}</p>
+              <p class="left single-message-date">Date: 12 March, 2016</p>
+              <button class="right message-delete-button button tiny secondary"><i class="fa fa-trash"></i></button>
+            </section>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <hr>  <pre>{{ vm.user | json }}</pre>
 </section>

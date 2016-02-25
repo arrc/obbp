@@ -1,0 +1,99 @@
+.profile-divider {
+  height: 50px;
+  background-color: #DDD5D3;
+}
+
+.profile-info-header {
+  background-color: #F5F5F5;
+  height: 200px;
+  position: relative;
+
+  .profile-info-container {
+    width: 450px;
+    margin: 20px 150px;
+  }
+
+  .pic-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 75px;
+      border: 2px solid gray;
+  }
+
+  .pic-info {
+    h1, h4 {
+      color: #C8B6B2;
+      margin-bottom: 0;
+    }
+  }
+
+  .profile-edit-button {
+    background: #DCD5D3;
+    color: #C8B6B2;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    position: absolute;
+    top: 40px;
+    right: 0px;
+  }
+}
+
+.all-messages-container {
+
+  .amc-title-container {
+    margin: 10px 0;
+    h2 {
+      color: #999999;
+      font-weight: bold;
+    }
+
+    .amc-count {
+      background: #D8D8D8;
+      width: 50px;
+      text-align: center;
+    }
+  }
+}
+
+.messages-list-container {
+  background: #fff;
+
+  .mlc-single-message {
+    margin-bottom: 5px;
+    .single-message-text {
+      font-size: 15px;
+      line-height: 19px;
+      color: #999999;
+      padding: 10px;
+      margin-bottom: 0;
+    }
+
+    .single-message-meta {
+
+      p {
+        color: #C6B7B3;
+        font-size: 0.8rem;
+        margin-bottom: 0;
+      }
+
+      .single-message-sender {
+        margin-left: 10px;
+      }
+
+      .single-message-date {
+        margin-left: 50px;
+      }
+
+      .message-delete-button {
+        padding: 5px;
+        width: 50px;
+        margin-bottom: 5px;
+        background: #DCD5D3;
+        color: #C8B6B2;
+        font-size: 16px;
+        line-height: 12px;
+      }
+    }
+  }
+}
