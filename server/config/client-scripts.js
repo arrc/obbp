@@ -10,6 +10,8 @@ module.exports = [
   'app/services/request.service.js',
   'app/services/message.service.js',
   'app/services/admin.service.js',
+  'app/services/camp.service.js',
+  'app/services/states.service.js',
   // controllers
   'app/controllers/home.ctrl.js',
   'app/controllers/user.ctrl.js',
@@ -19,6 +21,7 @@ module.exports = [
   'app/controllers/admin.ctrl.js',
   'app/controllers/admin.requests.ctrl.js',
   'app/controllers/admin.users.ctrl.js',
+  'app/controllers/admin.camps.ctrl.js',
   // routes
   'app/routes/user.route.js',
   'app/routes/search.route.js',

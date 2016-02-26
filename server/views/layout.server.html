@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="lib/ng-notify/dist/ng-notify.min.css">
     <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog.min.css">
     <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog-theme-default.min.css">
+    <link rel="stylesheet" href="lib/angular-datepicker/dist/angular-datepicker.min.css">
     <link rel="stylesheet" href="style/css/style.css">
   </head>
 
@@ -25,7 +26,9 @@
   <header data-ng-include="'app/views/core/footer.html'"></header>
 <!--Application JavaScript Files-->
 	<script src="lib/jquery/dist/jquery.js"></script>
-	<script src="lib/foundation/js/foundation.js"></script>
+  <script src="lib/foundation/js/foundation.js"></script>
+  <script src="lib/moment/min/moment.min.js"></script>
+	<script src="lib/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
   <script src="lib/angular/angular.min.js" charset="utf-8"></script>
   <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="lib/angular-cache/dist/angular-cache.js" charset="utf-8"></script>
@@ -34,6 +37,7 @@
   <script src="lib/ng-notify/dist/ng-notify.min.js" charset="utf-8"></script>
   <script src="lib/ng-dialog/js/ngDialog.min.js" charset="utf-8"></script>
   <script src="lib/ng-lodash/build/ng-lodash.min.js" charset="utf-8"></script>
+  <script src="lib/angular-datepicker/dist/angular-datepicker.min.js" charset="utf-8"></script>
   {% for script in clientScripts %}
 	<script src="{{ script }}"></script>
 	{% endfor %}

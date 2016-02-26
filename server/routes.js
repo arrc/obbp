@@ -46,6 +46,7 @@ module.exports = function(app){
 	app.param('requestId', adminRequest.requestById);
 
 	// 'ADMIN CAMP'
+	app.route('/api/admin/camps').post(adminCamp.createCamp);
 	app.route('/api/admin/camps').get(adminCamp.retriveCamps);
 	app.route('/api/admin/camps/:campById').get(adminCamp.retriveCamp);
 	// app.route('/api/admin/camps/:campById').put(adminCamp.updateCamp);

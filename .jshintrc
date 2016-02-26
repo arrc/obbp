@@ -20,7 +20,8 @@
 		"jasmine": true,
 		"angular": true,
 		"ApplicationConfiguration": true,
-		"ngNotify": true
+		"ngNotify": true,
+		"moment": true
 	},
 	"predef": [ // Extra globals.
 		"define",

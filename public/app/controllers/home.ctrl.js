@@ -4,7 +4,8 @@
 		var _this = this;
     _this.isAuth = Auth.isAuthenticated();
     _this.isAdmin = Auth.user().isAdmin;
-    
+    // console.log('isAdmin', _this.isAdmin);
+
     // login
     _this.login = function(){
       User.login(_this.credentials).then(function(){

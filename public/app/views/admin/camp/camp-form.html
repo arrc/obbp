@@ -1,0 +1,38 @@
+<section>
+  <form ng-submit="createCamp()">
+    <!-- state -->
+
+      <label>State
+        <select ng-model="campFormData.state">
+          <option value=''>Any</option>
+          <option ng-repeat="state in states" value="{{state}}">{{state}}</option>
+        </select>
+      </label>
+
+
+    <!-- address -->
+
+      <label>Address
+        <textarea ng-model="campFormData.address"></textarea>
+      </label>
+
+
+    <!-- address -->
+
+      <label>Description
+        <textarea ng-model="campFormData.description"></textarea>
+      </label>
+
+
+      <label>Date 
+        <input type="text" placeholder="DD/MM/YYYY (eg: 21/12/2016)" ng-model="campFormData.date">
+      </label>
+
+      <label>Time
+        <input type="text" placeholder="HH:MM:AM/PM (eg: 09:45:AM)" ng-model="campFormData.time">
+      </label>
+
+
+    <input type="submit" value="Submit">
+  </form>
+</section>
