@@ -2,8 +2,10 @@
 
 let clientScripts = require('../config/client-scripts.js');
 let User = require('../models/user.model.js');
+let DB = require('../models/db.model.js');
 let _ = require('lodash');
 let chance = require('chance').Chance();
+let moment = require('moment');
 
 exports.index = function(req, res, next) {
 	res.render('index', {clientScripts : clientScripts});
@@ -11,7 +13,27 @@ exports.index = function(req, res, next) {
 
 exports.testPost = function(req, res){
 	console.log(req.body);
-}
+};
+
+exports.saveDate = function(req, res){
+	var b = req.body;
+	console.log(b);
+	var datetime = moment(b.date + " " + b.time, "DD/MM/YYYY hh:mm:a").toISOString();
+	var data = {
+		date: moment(b.date, "DD/MM/YYYY").toISOString(),
+		time: moment(b.time, "hh:mm").toISOString(),
+		datetime: datetime
+	};
+	console.log('Data: \t',data);
+	DB.create(data, function(err, doc){
+		if (err) {
+			return res.status(400).json({message: 'err ' + err});
+		} else {
+			console.log("DOC \t", moment(doc.datetime).format("DD/MM/YYYY hh:mm:a"));
+			return res.status(200).json({data: doc, message: 'saved doc'});
+		}
+	});
+};
 
 exports.initdb = function(req, res){
 	User.find({}, function(err, docs){

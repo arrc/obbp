@@ -7,11 +7,13 @@ module.exports = function(app){
 	var message = require('./controllers/message.controller.js');
 	var adminUser = require('./controllers/admin.user.controller.js');
 	var adminRequest = require('./controllers/admin.request.controller.js');
+	var adminCamp = require('./controllers/admin.camp.controller.js');
 
 	// 'CORE' ----------------------------
 	app.route('/').get(core.index);
   app.route('/initdb').get(core.initdb);
-  app.route('/test').post(core.testPost);
+	app.route('/test').post(core.testPost);
+  app.route('/date').post(core.saveDate);
 
 	// 'USER'
 	app.route('/login').post(user.login);
@@ -42,4 +44,11 @@ module.exports = function(app){
 	app.route('/api/admin/requests/:requestId').put(adminRequest.updateRequest);
 	app.route('/api/admin/requests/:requestId').delete(adminRequest.deletRequest);
 	app.param('requestId', adminRequest.requestById);
+
+	// 'ADMIN CAMP'
+	app.route('/api/admin/camps').get(adminCamp.retriveCamps);
+	app.route('/api/admin/camps/:campById').get(adminCamp.retriveCamp);
+	// app.route('/api/admin/camps/:campById').put(adminCamp.updateCamp);
+	app.route('/api/admin/camps/:campById').delete(adminCamp.deletCamp);
+	app.param('campById', adminCamp.campById);
 };

@@ -2178,14 +2178,14 @@ pre {
   .search-form input[type="text"], .search-form select, .search-form input[type="submit"] {
     border-color: #D0C9C9;
     border-width: 2px;
-    font-size: 20px;
+    font-size: 16px;
     height: 40px; }
   .search-form input[type="text"]:focus,
   .search-form select:focus,
   .search-form input[type="submit"]:focus {
     border-color: #9C9191;
     border-width: 2px;
-    font-size: 20px;
+    font-size: 16px;
     height: 40px; }
   .search-form label {
     text-transform: uppercase;

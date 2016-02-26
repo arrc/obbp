@@ -34,6 +34,7 @@
     "kerberos": "0.0.17",
     "lodash": "^3.10.1",
     "method-override": "^2.3.5",
+    "moment": "^2.11.2",
     "mongodb-core": "^1.2.31",
     "mongoose": "^4.3.4",
     "passport": "^0.3.2",
