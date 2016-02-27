@@ -21,5 +21,11 @@ Donor:
   - create profile
   - blood donation camp
 
-'dob, gender, blood-group, weight mobile email address city date-last-donation donation-frequency'
-'name blood-group city hospital doctor-name when-required units purpose'
+# TODO
+  - error handling
+  - refactoring
+  - validation
+  - layout
+  - notifications
+  - animations
+  - pub-sub

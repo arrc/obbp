@@ -7,7 +7,7 @@
 		// create camp
 		o.createCamp = function(campFormData){
 			var dfd = $q.defer();
-			$http.post('/api/camps', campFormData)
+			$http.post('/api/admin/camps', campFormData)
 				.success(function(res){
 					dfd.resolve(res.data);
 				})
@@ -20,7 +20,7 @@
 		// retrive camps
 		o.retriveCamps = function(){
 			var dfd = $q.defer();
-			$http.get('/api/camps')
+			$http.get('/api/admin/camps')
 				.success(function(res){
 					dfd.resolve(res.data);
 				})
@@ -33,7 +33,20 @@
 		// retrive single camp
 		o.retriveCamp = function(campId){
 			var dfd = $q.defer();
-			$http.get('/api/camps/' + campId)
+			$http.get('/api/admin/camps/' + campId)
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
+		// make a blood request
+		o.updateCamp = function(camp){
+			var dfd = $q.defer();
+			$http.put('/api/admin/camps/' + camp._id, camp)
 				.success(function(res){
 					dfd.resolve(res.data);
 				})
@@ -44,9 +57,9 @@
 		};
 
 		// delete camp
-		o.deleteMessage = function(campId){
+		o.deleteCamp = function(campId){
 			var dfd = $q.defer();
-			$http.delete('/api/camps/' + campId)
+			$http.delete('/api/admin/camps/' + campId)
 				.success(function(res){
 					dfd.resolve(res.data);
 				})

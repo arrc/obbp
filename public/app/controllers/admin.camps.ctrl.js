@@ -14,15 +14,13 @@
         template: 'app/views/admin/camp/camp-form.html',
         controller: ['$scope', 'lodash', 'Camp', 'State', 'moment', function($scope, lodash, Camp, State, moment){
           $scope.states = State.state();
-          $scope.minDate = moment.tz('UTC').add(-4, 'd').hour(12).startOf('h');
-          console.log("Min date", $scope.minDate);
           $scope.createCamp = function(){
             console.log($scope.campFormData);
-            // Camp.createCamp($scope.campFormData).then(function(data){
-            //   console.log(data);
-            // }, function(error){
-            //   console.error(error);
-            // });
+            Camp.createCamp($scope.campFormData).then(function(data){
+              console.log(data);
+            }, function(error){
+              console.error(error);
+            });
           };
         }]
       });
@@ -32,13 +30,27 @@
     _this.retriveCamps = function(){
       Camp.retriveCamps().then(function(data){
         _this.camps = data;
+        console.log('Camps: \t', _this.camps);
+      }, function(error){
+        console.error(error);
       });
     };
 
 // retrive camp
-    _this.retriveCamp = function(messageId){
-      Camp.retriveCamp(messageId).then(function(data){
-        _this.camp = data;
+    _this.retriveCamp = function(camp){
+      ngDialog.open({
+        template: 'app/views/admin/camp/camp-edit-form.html',
+        controller: ['$scope', 'lodash', 'Camp', 'State', 'moment', function($scope, lodash, Camp, State, moment){
+          $scope.states = State.state();
+          $scope.camp = angular.copy(camp);
+          $scope.updateCamp = function(){
+            Camp.updateCamp($scope.camp).then(function(data){
+              console.log('updated camp',data);
+            }, function(error){
+              console.error(error);
+            });
+          };
+        }]
       });
     };
 

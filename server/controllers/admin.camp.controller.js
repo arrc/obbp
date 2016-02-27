@@ -28,6 +28,28 @@ exports.createCamp = function(req, res){
   });
 };
 
+// update camp
+exports.updateCamp = function(req, res){
+  var b = req.body;
+  var datetime = moment(b.date + " " + b.time, "DD/MM/YYYY hh:mm:a").toISOString();
+  var data = {
+    state: b.state,
+    address: b.address,
+    googleMapUrl: b.googleMapUrl,
+    description: b.description,
+    datetime: datetime
+  };
+  var camp = req.camp;
+  camp = _.extend(camp, data);
+  camp.save(function(err, doc){
+    if (err || !doc) {
+      return res.status(400).json({message: 'Error finding doc.'});
+    } else {
+      return res.status(200).json({ data: doc, message: 'success'});
+    }
+  });
+};
+
 // Single camp
 exports.retriveCamp = function(req, res){
   return res.status(200).json({ data: req.camp, message: 'success'});
@@ -35,10 +57,11 @@ exports.retriveCamp = function(req, res){
 
 // All camps
 exports.retriveCamps = function(req, res){
-  Camp.find({}).populate(['expectedDonors','actualDonors']).exec(function(err, camps){
+  Camp.find({}).populate('expectedDonors actualDonors').exec(function(err, camps){
     if (err || !camps) {
       return res.status(400).json({message: 'Error finding camps.'});
     } else {
+
       return res.status(200).json({ data: camps, message: 'success'});
     }
   });
@@ -58,7 +81,7 @@ exports.deletCamp = function(req, res){
 
 // campById
 exports.campById = function(req, res, next, campId){
-  Camp.findById(campId).populate('user').exec(function(err, doc){
+  Camp.findById(campId).populate('expectedDonors').exec(function(err, doc){
     if (err) return next(err);
 		if (!doc) return next(new Error('Failed to load camp ' + campId));
 		req.camp = doc;

@@ -8,4 +8,9 @@ let MessageSchema = mongoose.Schema({
   created: {type: Date, default: Date.now}
 });
 
+
+MessageSchema.set('toJSON', {
+   virtuals: true
+});
+
 module.exports = mongoose.model('Message', MessageSchema);

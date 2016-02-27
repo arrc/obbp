@@ -1,9 +1,9 @@
 <section>
-  <form ng-submit="createCamp()">
+  <form ng-submit="updateCamp()">
 
 <!-- state -->
     <label>State
-      <select ng-model="campFormData.state">
+      <select ng-model="camp.state">
         <option value=''>Any</option>
         <option ng-repeat="state in states" value="{{state}}">{{state}}</option>
       </select>
@@ -11,22 +11,22 @@
 
 <!-- address -->
     <label>Address
-      <textarea ng-model="campFormData.address"></textarea>
+      <textarea ng-model="camp.address"></textarea>
     </label>
 
 <!-- address -->
     <label>Description
-      <textarea ng-model="campFormData.description"></textarea>
+      <textarea ng-model="camp.description"></textarea>
     </label>
 
 <!-- date -->
     <label>Date
-      <input type="text" placeholder="DD/MM/YYYY (eg: 21/12/2016)" ng-model="campFormData.date">
+      <input type="text" placeholder="DD/MM/YYYY (eg: 21/12/2016)" ng-model="camp.date">
     </label>
 
 <!-- time -->
     <label>Time
-      <input type="text" placeholder="HH:MM:AM/PM (eg: 09:45:AM)" ng-model="campFormData.time">
+      <input type="text" placeholder="HH:MM:AM/PM (eg: 09:45:AM)" ng-model="camp.time">
     </label>
 
 <!-- submit -->

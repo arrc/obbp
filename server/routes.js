@@ -3,6 +3,7 @@
 module.exports = function(app){
 	var core = require('./controllers/core.controller.js');
 	var user = require('./controllers/user.controller.js');
+	var camp = require('./controllers/camp.controller.js');
 	var request = require('./controllers/request.controller.js');
 	var message = require('./controllers/message.controller.js');
 	var adminUser = require('./controllers/admin.user.controller.js');
@@ -21,6 +22,9 @@ module.exports = function(app){
 	app.route('/api/profile').get(user.profile);
 	app.route('/users').get(user.users);
 	app.route('/search').get(user.search);
+
+	// 'CAMPS'
+	// app.route('/api/camps').get(camp.retriveCamps);
 
 	// 'REQUEST'
 	app.route('/api/requests').post(request.makeRequest);
@@ -49,7 +53,7 @@ module.exports = function(app){
 	app.route('/api/admin/camps').post(adminCamp.createCamp);
 	app.route('/api/admin/camps').get(adminCamp.retriveCamps);
 	app.route('/api/admin/camps/:campById').get(adminCamp.retriveCamp);
-	// app.route('/api/admin/camps/:campById').put(adminCamp.updateCamp);
+	app.route('/api/admin/camps/:campById').put(adminCamp.updateCamp);
 	app.route('/api/admin/camps/:campById').delete(adminCamp.deletCamp);
 	app.param('campById', adminCamp.campById);
 };

@@ -1,6 +1,26 @@
-<section ng-controller="CampCtrl as vm">
-  <div class="row">
-    <h3>Camps</h3>
-    <button class="button small secondary" ng-click="vm.createCamp()">Create camp</button>
+<section class="row" ng-controller="CampCtrl as vm" ng-init="vm.retriveCamps()">
+  <div class="large-12 columns">
+    <div class="clearfix">
+      <h3 class="left">Camps</h3>
+      <button class="right button small secondary" ng-click="vm.createCamp()">Create camp</button>
+    </div>
+
+    <table>
+      <tbody>
+        <tr ng-repeat="camp in vm.camps">
+          <td width="500">
+            <div class="panel">
+              <p>{{ camp.description }}</p>
+              <p>{{ camp.state }}</p>
+              <div class="clearfix">
+                <p class="left">Date: {{ camp.date }} Time: {{ camp.time }}</p>
+                <button class="right button tiny info" ng-click="vm.retriveCamp(camp)">Edit</button>
+                <button class="right button tiny alert" ng-click="vm.deleteCamp(camp)">Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
