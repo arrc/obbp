@@ -1,0 +1,74 @@
+<section class="row" ng-controller="UserCtrl as vm">
+
+  <!-- register form -->
+  <div class="large-8 large-centered columns">
+    <!-- dob, gender, blood-group, weight mobile email address city date-last-donation donation-frequency -->
+    <h4>Update</h4>
+    <form ng-submit="vm.profileUpdate()">
+
+      <!-- Name -->
+      <div class="row">
+        <div class="large-6 columns">
+          <label>First name <input type="text" ng-model="vm.profileData.firstName" /></label>
+        </div>
+        <div class="large-6 columns">
+          <label>Last name <input type="text" ng-model="vm.profileData.lastName" /></label>
+        </div>
+      </div>
+      <!-- email -->
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Email <input type="email" ng-model="vm.profileData.email" /></label>
+        </div>
+        <!-- mobile -->
+        <div class="large-6 columns">
+          <label>Mobile <input type="text" ng-model="vm.profileData.mobile" /></label>
+        </div>
+      </div>
+      <!-- address -->
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Full Address
+            <textarea rows="5" ng-model="vm.profileData.address"></textarea>
+          </label>
+        </div>
+        <!-- state -->
+        <div class="large-6 columns">
+          <label>State
+            <select ng-model="vm.profileData.state">
+              <option value=''>Any</option>
+              <option ng-repeat="state in vm.states" value="{{state}}">{{state}}</option>
+            </select>
+          </label>
+        </div>
+        <!-- pincode -->
+        <div class="large-6 columns">
+          <label>Pincode <input type="text" ng-model="vm.profileData.pincode" /></label>
+        </div>
+      </div>
+      <!-- city -->
+      <div class="row">
+        <!-- dob -->
+        <div class="large-4 columns">
+          <label>Date of Birth <input type="text" ng-model="vm.profileData.dateOfBirth" /></label>
+        </div>
+
+        <!-- weight -->
+        <div class="large-4 columns">
+          <label>Weight in Kg's <input type="text" ng-model="vm.profileData.weight" /></label>
+        </div>
+        <!-- blood-group -->
+        <div class="large-4 columns">
+          <label>Blood group <input type="text" ng-model="vm.profileData.bloodGroup" /></label>
+        </div>
+      </div>
+      <!-- Submit button -->
+      <div class="row">
+        <div class="large-5 large-centered columns">
+          <button  class="button small alert">Cancel</button>
+          <input type="submit" value="Update" class="button small success">
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

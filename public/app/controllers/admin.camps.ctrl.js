@@ -36,7 +36,7 @@
       });
     };
 
-// retrive camp
+// retrive camp and update camp
     _this.retriveCamp = function(camp){
       ngDialog.open({
         template: 'app/views/admin/camp/camp-edit-form.html',

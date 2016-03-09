@@ -54,6 +54,20 @@
 			return dfd.promise;
 		};
 
+		// profile
+		o.profileUpdate = function(profileData){
+			console.log(profileData);
+			var dfd = $q.defer();
+			$http.put('/api/profile',profileData)
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
     return o;
 	};
 

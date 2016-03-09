@@ -29,3 +29,4 @@ Donor:
   - notifications
   - animations
   - pub-sub
+  - image upload

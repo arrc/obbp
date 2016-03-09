@@ -9,5 +9,9 @@ angular.module('obbp').config(['$stateProvider', function($stateProvider){
   .state('profile', {
     url: '/profile',
     templateUrl: 'app/views/user/profile.html'
+  })
+  .state('profile-edit', {
+    url: '/profile/edit',
+    templateUrl: 'app/views/user/profile-edit-form.html'
   });
 }]);

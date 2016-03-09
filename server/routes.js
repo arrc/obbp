@@ -20,6 +20,7 @@ module.exports = function(app){
 	app.route('/login').post(user.login);
 	app.route('/signup').post(user.signup);
 	app.route('/api/profile').get(user.profile);
+	app.route('/api/profile').put(user.profileUpdate);
 	app.route('/users').get(user.users);
 	app.route('/search').get(user.search);
 
