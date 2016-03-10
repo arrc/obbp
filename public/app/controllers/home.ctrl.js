@@ -10,9 +10,9 @@
     _this.login = function(){
       User.login(_this.credentials).then(function(){
 				_this.isAuth = Auth.isAuthenticated();
+        $window.location.reload();
         $state.go('profile');
 				ngNotify.set('User logged in successfully!');
-				// $window.location.reload();
 			}, function(error){
 				ngNotify.set('user not authenticated ! ' + error, 'error');
 			});
