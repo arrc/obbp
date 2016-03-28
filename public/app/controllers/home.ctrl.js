@@ -11,7 +11,7 @@
       User.login(_this.credentials).then(function(){
 				_this.isAuth = Auth.isAuthenticated();
         $window.location.reload();
-        $state.go('profile');
+        // $state.go('profile', {reload: true});
 				ngNotify.set('User logged in successfully!');
 			}, function(error){
 				ngNotify.set('user not authenticated ! ' + error, 'error');

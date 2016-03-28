@@ -1,11 +1,13 @@
 'use strict';
 
 let clientScripts = require('../config/client-scripts.js');
+let states = require('../config/states.js');
 let User = require('../models/user.model.js');
 let DB = require('../models/db.model.js');
 let _ = require('lodash');
 let chance = require('chance').Chance();
 let moment = require('moment');
+
 
 exports.index = function(req, res, next) {
 	res.render('index', {clientScripts : clientScripts});
@@ -35,20 +37,20 @@ exports.saveDate = function(req, res){
 	});
 };
 
-exports.initdb = function(req, res){
+exports.seed = function(req, res){
 	User.find({}, function(err, docs){
 		if(docs.length === 0) {
 			var usersArray = [
 				{username: 'admin',
 					email: 'admin@dfasf.com',
 					password: 'admin',
-					firstName: 'naveen',
-					lastName: 'kumar',
+					firstName: 'Naveen',
+					lastName: 'Kumar',
 					mobile: 95345342342,
 					address: '23-rew, rwo4234, delhi',
-					state: 'delhi',
+					state: 'Delhi',
 					pincode: '231211',
-					dateOfBirth: '21-11-1988',
+					dateOfBirth: '21-11-1993',
 					gender: 'male',
 					bloodGroup: 'A+',
 					weight: 23,
@@ -59,7 +61,8 @@ exports.initdb = function(req, res){
 
 			_.times(50, function(){
 						var name = chance.first();
-						var state = chance.state({ full: true });
+						// var state = chance.state({ full: true });
+						var state = states[_.random(0, states.length - 1)];
 						var street = chance.street();
 						var address = `${street}, ${state}`;
 						var bloodGroupChar = chance.character({pool: 'ABO'});

@@ -12,7 +12,7 @@ module.exports = function(app){
 
 	// 'CORE' ----------------------------
 	app.route('/').get(core.index);
-  app.route('/initdb').get(core.initdb);
+  app.route('/seed').get(core.seed);
 	app.route('/test').post(core.testPost);
   app.route('/date').post(core.saveDate);
 
