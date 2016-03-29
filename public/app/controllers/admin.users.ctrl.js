@@ -1,12 +1,14 @@
 (function() {
   'use strict';
-	var AdminUsersCtrl = function($http, ngDialog, User, Admin){
+	var AdminUsersCtrl = function($http, ngNotify, ngDialog, User, Admin){
 		var _this = this;
     _this.test = "this is a test message from AdminUsersCtrl";
 
     _this.retriveUsers = function(){
       Admin.retriveUsers().then(function(data){
         _this.users = data;
+      }, function(err){
+        ngNotify.set(err.message, "error");
       });
     };
 
@@ -47,6 +49,7 @@
 	============================================================ */
 	angular.module('obbp').controller('AdminUsersCtrl',[
 		'$http',
+    'ngNotify',
     'ngDialog',
     'User',
     'Admin',
