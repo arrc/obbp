@@ -1,7 +1,8 @@
 (function() {
   'use strict';
-	var HomeCtrl = function($http, $state, $window, User, Auth, ngNotify){
+	var HomeCtrl = function($http, $state, $window, State, User, Auth, ngNotify){
 		var _this = this;
+    _this.states = State.state();
     _this.isAuth = Auth.isAuthenticated();
     _this.isAdmin = Auth.user().isAdmin;
     // console.log('isAdmin', _this.isAdmin);
@@ -42,6 +43,7 @@
 		'$http',
     '$state',
     '$window',
+    'State',
     'User',
     'Auth',
     'ngNotify',

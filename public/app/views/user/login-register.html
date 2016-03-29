@@ -58,10 +58,8 @@
         <div class="large-6 columns">
           <label>Select state
             <select ng-model="vm.registrationData.state">
-              <option value="husker">Husker</option>
-              <option value="starbuck">Starbuck</option>
-              <option value="hotdog">Hot Dog</option>
-              <option value="apollo">Apollo</option>
+              <option value=''>Any</option>
+              <option ng-repeat="state in vm.states" value="{{state}}">{{state}}</option>
             </select>
           </label>
         </div>

@@ -14,6 +14,9 @@
     _this.retriveMessages = function(){
       Message.retriveMessages().then(function(data){
         _this.messages = data;
+      }, function(error){
+        console.log(error);
+        ngNotify.set(error.message, "error");
       });
     };
 

@@ -1,10 +1,11 @@
 'use strict';
 
-let User = require('../models/user.model.js'),
-  config = require('../config'),
+let User   = require('../models/user.model.js'),
+  config   = require('../config'),
   passport = require('passport'),
-  jwt = require('jsonwebtoken'),
-  _ = require('lodash');
+  jwt      = require('jsonwebtoken'),
+  colors   = require('colors'),
+  _        = require('lodash');
 
 exports.login = function(req, res, next){
   passport.authenticate('local-login', function(err, user, info){
@@ -113,7 +114,8 @@ exports.search = function(req, res){
   var bloodGroup = req.query.bg;
   var state = req.query.state;
   console.log(req.query);
-
+  // console.info("req token=".green + req.headers );
+  console.info("req token=" +JSON.stringify(req.headers));
   if (typeof state === 'undefined'){
     User.find({'bloodGroup': bloodGroup}).exec(function(err, usersDoc){
       if (err || !usersDoc) {

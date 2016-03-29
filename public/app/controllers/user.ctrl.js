@@ -3,7 +3,7 @@
 	var UserCtrl = function($http, $state, State, User, ngNotify){
 		var _this = this;
   // State
-    _this.state = State.state();
+    _this.states = State.state();
     _this.user = {};
     _this.profileData = {};
 

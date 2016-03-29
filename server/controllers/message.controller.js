@@ -41,7 +41,7 @@ exports.retriveMessages = function(req, res){
 };
 
 // Delete message
-exports.deletMessage = function(req, res){
+exports.deletMessage = function(req, res){ // FIX: spelling
   var message = req.message;
   message.remove(function(err){
     if (err) {

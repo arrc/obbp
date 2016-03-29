@@ -37,7 +37,7 @@ exports.saveDate = function(req, res){
 	});
 };
 
-exports.seed = function(req, res){
+exports.seed = function(req, res){ // TODO: somekind of 'env' check, only runnable in development mode.
 	User.find({}, function(err, docs){
 		if(docs.length === 0) {
 			var usersArray = [
