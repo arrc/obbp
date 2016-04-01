@@ -114,8 +114,7 @@ exports.search = function(req, res){
   var bloodGroup = req.query.bg;
   var state = req.query.state;
   console.log(req.query);
-  // console.info("req token=".green + req.headers );
-  console.info("req token=" +JSON.stringify(req.headers));
+
   if (typeof state === 'undefined'){
     User.find({'bloodGroup': bloodGroup}).exec(function(err, usersDoc){
       if (err || !usersDoc) {
