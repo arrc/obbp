@@ -25,7 +25,7 @@ module.exports = function(app) {
   app.route('/search').get(user.search);
 
   // 'CAMPS'
-  // app.route('/api/camps').get(camp.retriveCamps);
+  app.route('/api/camps').get(camp.retriveCamps);
 
   // 'REQUEST'
   app.route('/api/requests').post(request.makeRequest);
