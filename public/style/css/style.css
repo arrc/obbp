@@ -7,12 +7,24 @@
   src: url("../fonts/Lato/Lato-Regular.ttf"); }
 
 @font-face {
+  font-family: 'Lato-Bold';
+  src: url("../fonts/Lato/Lato-Bold.ttf"); }
+
+@font-face {
+  font-family: 'Lato-Light';
+  src: url("../fonts/Lato/Lato-Light.ttf"); }
+
+@font-face {
   font-family: 'Raleway';
   src: url("../fonts/Raleway/Raleway-Regular.ttf"); }
 
 @font-face {
   font-family: 'Raleway-Bold';
   src: url("../fonts/Raleway/Raleway-Bold.ttf"); }
+
+@font-face {
+  font-family: 'Raleway-Light';
+  src: url("../fonts/Raleway/Raleway-Light.ttf"); }
 
 body {
   background: #F2F2F2; }
@@ -2080,19 +2092,20 @@ meta.foundation-mq-topbar {
 nav.top-bar li a {
   text-transform: uppercase; }
 
-p {
-  font-family: 'Arvo'; }
-
 footer {
   background: #CA6A6A; }
 
 .main-footer {
   color: #E0CDC7; }
   .main-footer h4 {
+    font-family: 'Lato-Bold', Helvetica, Arial;
     color: #E0CDC7; }
   .main-footer ul li {
     list-style: none;
+    font-family: 'Lato-Light', Helvetica, Arial;
     font-size: .9rem; }
+  .main-footer .helpline p {
+    font-family: 'Arvo', Helvetica, Arial; }
 
 .sub-footer {
   color: #E0CDC7;
@@ -2103,6 +2116,7 @@ footer {
     color: #E0CDC7;
     text-decoration: underline; }
   .sub-footer p {
+    font-family: 'Raleway-Light', Helvetica, Arial;
     font-size: .7rem;
     margin-bottom: 5px; }
 
@@ -2115,12 +2129,24 @@ footer {
   src: url("../fonts/Lato/Lato-Regular.ttf"); }
 
 @font-face {
+  font-family: 'Lato-Bold';
+  src: url("../fonts/Lato/Lato-Bold.ttf"); }
+
+@font-face {
+  font-family: 'Lato-Light';
+  src: url("../fonts/Lato/Lato-Light.ttf"); }
+
+@font-face {
   font-family: 'Raleway';
   src: url("../fonts/Raleway/Raleway-Regular.ttf"); }
 
 @font-face {
   font-family: 'Raleway-Bold';
   src: url("../fonts/Raleway/Raleway-Bold.ttf"); }
+
+@font-face {
+  font-family: 'Raleway-Light';
+  src: url("../fonts/Raleway/Raleway-Light.ttf"); }
 
 body {
   background: #F2F2F2; }
@@ -2143,17 +2169,24 @@ pre {
   height: 200px;
   position: relative; }
   .profile-info-header .profile-info-container {
-    width: 450px;
+    width: 700px;
     margin: 20px 150px; }
   .profile-info-header .pic-image {
     width: 150px;
     height: 150px;
     border-radius: 75px;
     border: 2px solid gray; }
-  .profile-info-header .pic-info h1, .profile-info-header .pic-info h4 {
-    color: #C8B6B2;
-    margin-bottom: 0; }
+  .profile-info-header .pic-info {
+    margin-left: 170px; }
+    .profile-info-header .pic-info h1, .profile-info-header .pic-info h4 {
+      color: #C8B6B2;
+      margin-bottom: 0; }
+    .profile-info-header .pic-info h1 {
+      font-family: 'Lato', Helvetica, Arial; }
+    .profile-info-header .pic-info h4 {
+      font-family: 'Raleway', Helvetica, Arial; }
   .profile-info-header .profile-edit-button {
+    font-family: 'Lato-Bold', Helvetica, Arial;
     background: #DCD5D3;
     color: #C8B6B2;
     font-weight: bold;
@@ -2167,7 +2200,8 @@ pre {
   margin: 10px 0; }
   .all-messages-container .amc-title-container h2 {
     color: #999999;
-    font-weight: bold; }
+    font-weight: bold;
+    font-family: 'Lato-Bold', Helvetica, Arial; }
   .all-messages-container .amc-title-container .amc-count {
     background: #D8D8D8;
     width: 50px;
@@ -2178,6 +2212,7 @@ pre {
   .messages-list-container .mlc-single-message {
     margin-bottom: 5px; }
     .messages-list-container .mlc-single-message .single-message-text {
+      font-family: 'Raleway', Helvetica, Arial;
       font-size: 15px;
       line-height: 19px;
       color: #999999;
@@ -2185,10 +2220,12 @@ pre {
       margin-bottom: 0; }
     .messages-list-container .mlc-single-message .single-message-meta p {
       color: #C6B7B3;
+      font-family: 'Lato-Light', Helvetica, Arial;
       font-size: 0.8rem;
       margin-bottom: 0; }
     .messages-list-container .mlc-single-message .single-message-meta .single-message-sender {
-      margin-left: 10px; }
+      margin-left: 10px;
+      max-width: 200px; }
     .messages-list-container .mlc-single-message .single-message-meta .single-message-date {
       margin-left: 50px; }
     .messages-list-container .mlc-single-message .single-message-meta .message-delete-button {
@@ -2219,8 +2256,10 @@ pre {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
   .search-form input[type="submit"] {
-    padding-top: 7px; }
+    padding-top: 7px;
+    font-family: 'Raleway', Helvetica, Arial; }
   .search-form input[type="text"], .search-form select, .search-form input[type="submit"] {
+    font-family: 'Raleway', Helvetica, Arial;
     border-color: #D0C9C9;
     border-width: 2px;
     font-size: 16px;
@@ -2234,8 +2273,8 @@ pre {
     height: 40px; }
   .search-form label {
     text-transform: uppercase;
-    font-weight: bold;
-    color: #A34C4C; }
+    color: #A34C4C;
+    font-family: 'Lato-Bold', Helvetica, Arial; }
 
 .user-profile-container {
   width: 230px;
@@ -2252,17 +2291,20 @@ pre {
       border: 2px solid gray; }
     .user-profile-container .upc-pic p {
       margin-bottom: 0;
-      color: #8B572A; }
+      color: #8B572A;
+      font-family: 'Raleway-Bold', Helvetica, Arial; }
   .user-profile-container .upc-info {
     padding: 10px;
     background: #D3C3C0;
-    color: #fff; }
+    color: #fff;
+    font-family: 'Raleway', Helvetica, Arial; }
     .user-profile-container .upc-info p {
       margin-bottom: 0; }
   .user-profile-container .upc-message {
     background: #A95252; }
-    .user-profile-container .upc-message h4 {
+    .user-profile-container .upc-message p {
       margin-top: 0;
-      color: #E6E0E0; }
-      .user-profile-container .upc-message h4 i {
+      color: #E6E0E0;
+      font-family: 'Lato', Helvetica, Arial; }
+      .user-profile-container .upc-message p i {
         margin-right: 5px; }

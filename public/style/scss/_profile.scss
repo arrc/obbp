@@ -9,7 +9,7 @@
   position: relative;
 
   .profile-info-container {
-    width: 450px;
+    width: 700px;
     margin: 20px 150px;
   }
 
@@ -21,13 +21,24 @@
   }
 
   .pic-info {
+    margin-left: 170px;
+
     h1, h4 {
       color: #C8B6B2;
       margin-bottom: 0;
     }
+
+    h1 {
+      font-family: 'Lato', Helvetica, Arial;
+    }
+
+    h4 {
+      font-family: 'Raleway', Helvetica, Arial;
+    }
   }
 
   .profile-edit-button {
+    font-family: 'Lato-Bold', Helvetica, Arial;
     background: #DCD5D3;
     color: #C8B6B2;
     font-weight: bold;
@@ -46,6 +57,7 @@
     h2 {
       color: #999999;
       font-weight: bold;
+      font-family: 'Lato-Bold', Helvetica, Arial;
     }
 
     .amc-count {
@@ -62,6 +74,7 @@
   .mlc-single-message {
     margin-bottom: 5px;
     .single-message-text {
+      font-family: 'Raleway', Helvetica, Arial;
       font-size: 15px;
       line-height: 19px;
       color: #999999;
@@ -73,12 +86,14 @@
 
       p {
         color: #C6B7B3;
+        font-family: 'Lato-Light', Helvetica, Arial;
         font-size: 0.8rem;
         margin-bottom: 0;
       }
 
       .single-message-sender {
         margin-left: 10px;
+        max-width: 200px;
       }
 
       .single-message-date {

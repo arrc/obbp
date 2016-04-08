@@ -10,6 +10,18 @@
   src: url('../fonts/Lato/Lato-Regular.ttf');
 }
 
+// Lato Bold
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url('../fonts/Lato/Lato-Bold.ttf');
+}
+
+// Lato Light
+@font-face {
+  font-family: 'Lato-Light';
+  src: url('../fonts/Lato/Lato-Light.ttf');
+}
+
 // Raleway
 @font-face {
   font-family: 'Raleway';
@@ -20,6 +32,12 @@
 @font-face {
   font-family: 'Raleway-Bold';
   src: url('../fonts/Raleway/Raleway-Bold.ttf');
+}
+
+// Raleway light
+@font-face {
+  font-family: 'Raleway-Light';
+  src: url('../fonts/Raleway/Raleway-Light.ttf');
 }
 
 body {

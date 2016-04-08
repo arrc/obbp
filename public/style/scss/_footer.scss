@@ -4,13 +4,21 @@ footer {
 
 .main-footer {
   h4 {
+    font-family: 'Lato-Bold', Helvetica, Arial;
     color: #E0CDC7;
   }
   color: #E0CDC7;
 
   ul li {
     list-style: none;
+    font-family: 'Lato-Light', Helvetica, Arial;
     font-size: .9rem;
+  }
+
+  .helpline {
+    p {
+      font-family: 'Arvo', Helvetica, Arial;
+    }
   }
 }
 
@@ -26,6 +34,7 @@ footer {
   }
 
   p {
+    font-family: 'Raleway-Light', Helvetica, Arial;
     font-size: .7rem;
     margin-bottom: 5px;
   }
