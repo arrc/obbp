@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Arvo';
+  src: url("../fonts/Arvo/Arvo-Regular.ttf"); }
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato/Lato-Regular.ttf"); }
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("../fonts/Raleway/Raleway-Regular.ttf"); }
+
+@font-face {
+  font-family: 'Raleway-Bold';
+  src: url("../fonts/Raleway/Raleway-Bold.ttf"); }
+
 body {
   background: #F2F2F2; }
 
@@ -2064,6 +2080,9 @@ meta.foundation-mq-topbar {
 nav.top-bar li a {
   text-transform: uppercase; }
 
+p {
+  font-family: 'Arvo'; }
+
 footer {
   background: #CA6A6A; }
 
@@ -2086,6 +2105,22 @@ footer {
   .sub-footer p {
     font-size: .7rem;
     margin-bottom: 5px; }
+
+@font-face {
+  font-family: 'Arvo';
+  src: url("../fonts/Arvo/Arvo-Regular.ttf"); }
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato/Lato-Regular.ttf"); }
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("../fonts/Raleway/Raleway-Regular.ttf"); }
+
+@font-face {
+  font-family: 'Raleway-Bold';
+  src: url("../fonts/Raleway/Raleway-Bold.ttf"); }
 
 body {
   background: #F2F2F2; }
