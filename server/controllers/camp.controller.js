@@ -29,5 +29,5 @@ exports.retriveLocalCamps = function(req, res){
         return res.status(200).json({ data: camps, message: 'success'});
       }
     });
-  })
+  });
 };

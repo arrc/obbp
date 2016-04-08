@@ -6,6 +6,7 @@ let CampSchema = mongoose.Schema({
   state: String,
   googleMapUrl: String,
   address: String,
+  title: String,
   description: String,
   datetime: {type: Date},
   expectedDonors: [{type: String, ref: 'User'}],
