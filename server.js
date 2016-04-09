@@ -68,7 +68,10 @@ app.use(function(req, res, next) {
 /* ==========================================================
   API ROUTES
 ============================================================ */
-app.use('/api', expressJwt({ secret: config.jwtSecretKey }));
+app.use('/api', expressJwt({ secret: config.jwtSecretKey }), (req, res, next) => {
+  console.log('API: - \t',req.user);
+  next();
+});
 
 /* ==========================================================
   ROUTES
