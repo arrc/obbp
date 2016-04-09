@@ -27,7 +27,8 @@ let UserSchema =  mongoose.Schema({
 */
 UserSchema.pre('save', function(next) {
   this.wasNew = this.isNew;
-  if(this.isNew){
+  let _this = this;
+  if(_this.isNew || _this.isModified){
     if (this.password) {
       this.password = this.generateHash(this.password);
     }

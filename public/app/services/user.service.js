@@ -68,6 +68,20 @@
 			return dfd.promise;
 		};
 
+		// profile
+		o.changePassword = function(changePasswordData){
+			console.log(changePasswordData);
+			var dfd = $q.defer();
+			$http.put('/api/user/password',changePasswordData)
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
     return o;
 	};
 

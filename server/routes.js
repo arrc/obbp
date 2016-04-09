@@ -16,11 +16,19 @@ module.exports = function(app) {
   app.route('/test').post(core.testPost);
   app.route('/date').post(core.saveDate);
 
+  // 'AUTH'
+  app.route('/auth/login').post(user.login);
+  app.route('/auth/signup').post(user.signup);
+  // app.route('/auth/forgot').post(user.forgot);
+	// app.route('/auth/reset/:token').get(user.validateResetToken);
+	// app.route('/auth/reset/:token').post(user.reset);
+
   // 'USER'
   app.route('/login').post(user.login);
   app.route('/signup').post(user.signup);
   app.route('/api/profile').get(user.profile);
   app.route('/api/profile').put(user.profileUpdate);
+  app.route('/api/user/password').put(user.changePassword);
   app.route('/users').get(user.users);
   app.route('/search').get(user.search);
 

@@ -15,7 +15,7 @@
         // $state.go('profile', {reload: true});
 				ngNotify.set('User logged in successfully!');
 			}, function(error){
-				ngNotify.set('user not authenticated ! ' + error, 'error');
+				ngNotify.set(error.message, 'error');
 			});
     };
 

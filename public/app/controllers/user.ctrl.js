@@ -26,6 +26,17 @@
       });
     };
 
+    _this.changePassword = function(){
+      User.changePassword(_this.changePasswordData).then(function(data){
+        console.log('Password changed successfully. \t',data);
+        $state.go('profile');
+        ngNotify.set("Password changed successfully.", "success");
+      }, function(error){
+        console.error(error);
+        ngNotify.set("Failed to change password.", "error");
+      });
+    };
+
 	};
 
 	/* ==========================================================

@@ -10,11 +10,12 @@ let User   = require('../models/user.model.js'),
 exports.login = function(req, res, next){
   passport.authenticate('local-login', function(err, user, info){
     if (err || !user) {
-      res.status(400).json(info);
+      res.status(400).json({message: "Failed to login. Please provide correct credentials."});
     } else {
       req.logIn(user, {session: false}, function(err){
         if (err) {
-          res.status(400).json(err);
+          console.log(err);
+          res.status(400).json({message: "Failed to login. Please provide correct credentials."});
         } else {
           let payload = {
             '_id' : user.id,
@@ -94,6 +95,46 @@ exports.profileUpdate = function(req, res){
       });
     }
   });
+};
+
+exports.changePassword = function(req, res){
+  let oldPassword = req.body.oldPassword;
+  let newPassword = req.body.newPassword;
+
+  if(req.user) { console.log(req.user);
+    if(oldPassword && newPassword) {
+      User.findById(req.user._id, function(err, user){
+        if(!err && user){
+          if(user.validPassword(oldPassword)) {
+            user.password = newPassword;
+
+            user.save(function(err, userDoc, updated){
+              if(!err && updated){
+                let payload = {
+                  '_id' : userDoc.id,
+                  username: userDoc.username
+                };
+                var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  60*60*5 });
+                res.status(200).json({token: token, user: user, message: 'Password change successfull.'});
+              } else {
+                console.error('Error updating password', err);
+                res.status(400).json({message: 'Error changing password. Please try again.'});
+              }
+            });
+          } else {
+            res.status(400).json({message: 'Your old password did not match.'});
+          }
+        } else {
+          console.log(err);
+          res.status(400).json({message: 'There is no user by this username.'});
+        }
+      });
+    } else {
+      res.status(400).json({message: 'Old or New password not set.'});
+    }
+  } else {
+    res.status(400).json({message: 'User not logged in.'});
+  }
 };
 
 exports.users = function(req, res){
