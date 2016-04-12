@@ -1,20 +1,29 @@
 'use strict';
 
-let clientScripts = require('../config/client-scripts.js');
-let states = require('../config/states.js');
-let User = require('../models/user.model.js');
-let DB = require('../models/db.model.js');
-let _ = require('lodash');
-let chance = require('chance').Chance();
-let moment = require('moment');
+let clientScripts = require('../config/client-scripts.js'),
+states            = require('../config/states.js'),
+config            = require('../config'),
+User              = require('../models/user.model.js'),
+DB                = require('../models/db.model.js'),
+_                 = require('lodash'),
+chance            = require('chance').Chance(),
+jwt               = require('jsonwebtoken'),
+moment            = require('moment');
 
 
 exports.index = function(req, res, next) {
 	res.render('index', {clientScripts : clientScripts});
 };
 
-exports.testPost = function(req, res){
-	console.log(req.body);
+exports.token = function(req, res){
+	let payload = {
+		'_id' : 'req.user._id',
+		username: 'req.user.username',
+		isAdmin: 'req.user.isAdmin'
+	};
+
+	var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  "7d" });
+	res.status(200).json({token: token});
 };
 
 exports.saveDate = function(req, res){
@@ -33,67 +42,6 @@ exports.saveDate = function(req, res){
 		} else {
 			console.log("DOC \t", moment(doc.datetime).format("DD/MM/YYYY hh:mm:a"));
 			return res.status(200).json({data: doc, message: 'saved doc'});
-		}
-	});
-};
-
-exports.seed = function(req, res){ // TODO: somekind of 'env' check, only runnable in development mode.
-	User.find({}, function(err, docs){
-		if(docs.length === 0) {
-			var usersArray = [
-				{username: 'admin',
-					email: 'admin@dfasf.com',
-					password: 'admin',
-					firstName: 'Naveen',
-					lastName: 'Kumar',
-					mobile: 95345342342,
-					address: '23-rew, rwo4234, delhi',
-					state: 'Delhi',
-					pincode: '231211',
-					dateOfBirth: '21-11-1993',
-					gender: 'male',
-					bloodGroup: 'A+',
-					weight: 23,
-					isActive: true,
-					isAdmin: true
-				 }
-			];
-
-			_.times(50, function(){
-						var name = chance.first();
-						// var state = chance.state({ full: true });
-						var state = states[_.random(0, states.length - 1)];
-						var street = chance.street();
-						var address = `${street}, ${state}`;
-						var bloodGroupChar = chance.character({pool: 'ABO'});
-						var bloodGroupPlusMinus = chance.character({pool: '-+'});
-						var bloodGroupFull = (`${bloodGroupChar}${bloodGroupPlusMinus}`);
-						usersArray.push({
-							username: name.toLowerCase(),
-							email: chance.email(),
-							firstName: name,
-							lastName: chance.last(),
-							password: 'admin',
-							mobile: chance.phone({ country: "uk", mobile: true }),
-							address: address,
-							state: state,
-							pincode: chance.zip(),
-							dateOfBirth: chance.birthday({string: true, american: false}),
-							gender: chance.gender(),
-							bloodGroup: bloodGroupFull,
-							weight: chance.integer({min: 50, max: 180}),
-							isActive: chance.bool(),
-							isAdmin: false
-					});
-				});
-
-				User.create(usersArray, function(err, docs){
-					if (err) {
-						res.status(400).json({message: err});
-					} else {
-						res.status(200).jsonp({message: 'Users successfully created.', data: docs});
-					}
-				});
 		}
 	});
 };

@@ -3,6 +3,7 @@
 let User   = require('../models/user.model.js'),
   config   = require('../config'),
   passport = require('passport'),
+  moment   = require('moment'),
   jwt      = require('jsonwebtoken'),
   colors   = require('colors'),
   _        = require('lodash');
@@ -22,8 +23,9 @@ exports.login = function(req, res, next){
             username: user.username,
             isAdmin: user.isAdmin
           };
-          // var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  60*60*5 });
-          var token = jwt.sign(payload, config.jwtSecretKey);
+          let now = moment();
+          let expiryDate = moment(now).add(7,'d');
+          var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  "7d" });
           res.status(200).json({token: token, user: user});
         }
       });
@@ -42,9 +44,12 @@ exports.signup = function(req, res, next){
         } else {
           let payload = {
             '_id' : user.id,
-            username: user.username
+            username: user.username,
+            isAdmin: user.isAdmin
           };
-          var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  60*60*5 });
+          let now = moment();
+          let expiryDate = moment(now).add(7,'d');
+          var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  "7d" });
           res.status(200).json({token: token, user: user, message: 'Signup successfull.'});
         }
       });
@@ -112,9 +117,12 @@ exports.changePassword = function(req, res){
               if(!err && updated){
                 let payload = {
                   '_id' : userDoc.id,
-                  username: userDoc.username
+                  username: userDoc.username,
+                  isAdmin: user.isAdmin
                 };
-                var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  60*60*5 });
+                let now = moment();
+                let expiryDate = moment(now).add(7,'d');
+                var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  "7d" });
                 res.status(200).json({token: token, user: user, message: 'Password change successfull.'});
               } else {
                 console.error('Error updating password', err);
