@@ -1,6 +1,7 @@
 'use strict';
 
 let clientScripts = require('../config/client-scripts.js'),
+fs                = require('fs'),
 states            = require('../config/states.js'),
 config            = require('../config'),
 User              = require('../models/user.model.js'),
@@ -8,7 +9,10 @@ DB                = require('../models/db.model.js'),
 _                 = require('lodash'),
 chance            = require('chance').Chance(),
 jwt               = require('jsonwebtoken'),
-moment            = require('moment');
+moment            = require('moment'),
+util              = require('util'),
+multer = require('multer'),
+upload = multer();
 
 
 exports.index = function(req, res, next) {
@@ -24,6 +28,11 @@ exports.token = function(req, res){
 
 	var token = jwt.sign(payload, config.jwtSecretKey, { expiresIn:  "7d" });
 	res.status(200).json({token: token});
+};
+
+exports.upload = function(req, res){
+	console.log("Files: \n", util.inspect(req.files , { depth: null }));
+	res.status(200).json({message: 'done'});
 };
 
 exports.saveDate = function(req, res){

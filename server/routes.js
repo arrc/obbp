@@ -10,10 +10,14 @@ module.exports = function(app) {
     adminRequest = require('./controllers/admin.request.controller.js'),
     adminCamp    = require('./controllers/admin.camp.controller.js');
 
+  var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
+
   // 'CORE' ----------------------------
   app.route('/').get(core.index);
   app.route('/token').get(core.token);
   app.route('/date').post(core.saveDate);
+  app.route('/upload').post(multipartMiddleware, core.upload);
 
   // 'AUTH'
   app.route('/auth/login').post(user.login);

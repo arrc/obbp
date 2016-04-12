@@ -1,7 +1,8 @@
 (function() {
   'use strict';
-	var UserCtrl = function($http, $state, State, User, ngNotify){
+	var UserCtrl = function($http, $state, $window, $timeout, State, User, Auth, ngNotify, FileUploader, Upload){
 		var _this = this;
+    var token = Auth.getToken();
   // State
     _this.states = State.state();
     _this.user = {};
@@ -37,6 +38,67 @@
       });
     };
 
+    _this.uploader = new FileUploader({
+      url: '/upload',
+      withCredentials: true
+    });
+
+    // Set file uploader image filter
+		_this.uploader.filters.push({
+			name: 'imageFilter',
+			fn: function (item, options) {
+				var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+				return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+			}
+		});
+
+    // Called after the user selected a new picture file
+		_this.uploader.onAfterAddingFile = function (fileItem) {
+			if ($window.FileReader) {
+				var fileReader = new FileReader();
+				fileReader.readAsDataURL(fileItem._file);
+
+				fileReader.onload = function (fileReaderEvent) {
+					$timeout(function () {
+						_this.imageURL = fileReaderEvent.target.result;
+					}, 0);
+				};
+			}
+		};
+
+    // Called after the user has successfully uploaded a new picture
+		_this.uploader.onSuccessItem = function (fileItem, response, status, headers) {
+      console.log('Done uploading image', fileItem, response, status);
+		};
+
+    // Called after the user has failed to uploaded a new picture
+		_this.uploader.onErrorItem = function (fileItem, response, status, headers) {
+			console.error('Failed uploading image', fileItem, response, status, headers);
+		};
+
+    _this.startUploading = function(){
+      _this.uploader.uploadAll();
+    };
+
+    /* ng upload */
+    _this.ngUpload = function(file){
+      file.upload = Upload.upload({
+        url: '/upload',
+        data: {file: file},
+        file: file
+      });
+
+      file.upload.then(function(res){
+        $timeout(function () {
+          file.result = res.data;
+          console.log(res);
+        });
+      }, function(res){
+        console.log(res);
+      });
+    };
+
+
 	};
 
 	/* ==========================================================
@@ -45,9 +107,14 @@
 	angular.module('obbp').controller('UserCtrl',[
 		'$http',
     '$state',
+    '$window',
+    '$timeout',
     'State',
     'User',
+    'Auth',
     'ngNotify',
+    'FileUploader',
+    'Upload',
 		UserCtrl
 	]);
 })();

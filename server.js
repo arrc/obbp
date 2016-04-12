@@ -14,7 +14,8 @@ var express      = require('express'),
   moment         = require('moment'),
   passport       = require('passport'),
   jwt            = require('jsonwebtoken'),
-  expressJwt     = require('express-jwt');
+  expressJwt     = require('express-jwt'),
+  busboy = require('connect-busboy');
 
 /* ==========================================================
 Set the Port
@@ -41,6 +42,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.enable('jsonp callback');
 app.use(bodyParser.urlencoded({'extended':'true'}));
+app.use(busboy());
 app.engine('server.html', consolidate.swig);
 app.set('view engine', 'server.html');
 app.set('views', __dirname + '/server/views');

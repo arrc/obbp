@@ -23,6 +23,30 @@
   </div>
 
   <hr>
+
+  <!-- Profile pic -->
+  <div class="large-8 large-centered columns">
+    <h4>Change profile picture.</h4>
+    <form>
+      <!-- Old password -->
+      <div class="row">
+        <div class="large-2 columns user-profile-picture-thumbnail">
+          <img src="" alt="">
+        </div>
+        <div class="large-6 columns">
+          <label>Upload new image <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*" /></label>
+        </div>
+      </div>
+      <!-- Submit button -->
+      <div class="row">
+        <div class="large-3 large-centered columns">
+          <button ng-click="vm.ngUpload(picFile)" class="button expand small success">Upload</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <hr>
+
   <!-- register form -->
   <div class="large-8 large-centered columns">
     <!-- dob, gender, blood-group, weight mobile email address city date-last-donation donation-frequency -->
