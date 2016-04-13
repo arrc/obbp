@@ -31,16 +31,17 @@
       <!-- Old password -->
       <div class="row">
         <div class="large-2 columns user-profile-picture-thumbnail">
-          <img src="" alt="">
+          <!-- <img ngf-thumbnail="vm.profileImage.picFile"> -->
+          <img ngf-src="vm.profileImage.picFile" ngf-resize="{width: 200, height: 200}">
         </div>
         <div class="large-6 columns">
-          <label>Upload new image <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*" /></label>
+          <label>Upload new image <input type="file" ngf-select ng-model="vm.profileImage.picFile" name="file" accept="image/*" /></label>
         </div>
       </div>
       <!-- Submit button -->
       <div class="row">
         <div class="large-3 large-centered columns">
-          <button ng-click="vm.ngUpload(picFile)" class="button expand small success">Upload</button>
+          <button ng-click="vm.ngUpload(vm.profileImage.picFile)" class="button expand small success">Upload</button>
         </div>
       </div>
     </form>

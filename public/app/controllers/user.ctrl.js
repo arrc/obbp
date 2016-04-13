@@ -83,9 +83,11 @@
     /* ng upload */
     _this.ngUpload = function(file){
       file.upload = Upload.upload({
-        url: '/upload',
+        url: '/api/profile/image',
         data: {file: file},
-        file: file
+        file: file,
+        headers: {'Authorization': 'Bearer ' + token},
+        withCredentials: true
       });
 
       file.upload.then(function(res){

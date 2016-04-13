@@ -1,12 +1,15 @@
 'use strict';
 
-let User   = require('../models/user.model.js'),
-  config   = require('../config'),
-  passport = require('passport'),
-  moment   = require('moment'),
-  jwt      = require('jsonwebtoken'),
-  colors   = require('colors'),
-  _        = require('lodash');
+let User     = require('../models/user.model.js'),
+  config     = require('../config'),
+  passport   = require('passport'),
+  moment     = require('moment'),
+  jwt        = require('jsonwebtoken'),
+  colors     = require('colors'),
+  _          = require('lodash'),
+  cloudinary = require('cloudinary'),
+  util       = require('util'),
+  shortid    = require('shortid');
 
 exports.login = function(req, res, next){
   passport.authenticate('local-login', function(err, user, info){
@@ -182,4 +185,32 @@ exports.search = function(req, res){
     });
   }
 
+};
+
+
+// Profile image change
+exports.profileImageChange = function(req, res){
+  let customId = shortid.generate();
+  let filePath = req.files.file.path;
+  let publicId = "obbp/profiles/" + req.user.username + '-' + customId;
+
+	cloudinary.config({
+	  cloud_name: config.cloudinaryCloudName,
+	  api_key: config.cloudinaryApiKey,
+	  api_secret: config.cloudinaryApiSecret
+	});
+
+  // console.log("Files: \n", util.inspect(req.files , { depth: null }));
+
+	cloudinary.uploader.upload(filePath, function(result) {
+	  User.findById(req.user._id).exec(function(err, userDoc){
+      if (!err && userDoc) {
+        userDoc.profileImagePublicId = result.public_id;
+        userDoc.profileImageUrl = result.secure_url;
+        userDoc.save(function(err, savedDoc){ console.log(savedDoc); });
+      }
+    });
+	}, { public_id: publicId});
+
+	res.status(200).json({message: 'done'});
 };

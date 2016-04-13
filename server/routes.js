@@ -31,6 +31,7 @@ var multipartMiddleware = multipart();
   app.route('/signup').post(user.signup);
   app.route('/api/profile').get(user.profile);
   app.route('/api/profile').put(user.profileUpdate);
+  app.route('/api/profile/image').post(multipartMiddleware, user.profileImageChange);
   app.route('/api/user/password').put(user.changePassword);
   app.route('/users').get(user.users);
   app.route('/search').get(user.search);

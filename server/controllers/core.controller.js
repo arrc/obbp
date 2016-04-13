@@ -11,8 +11,7 @@ chance            = require('chance').Chance(),
 jwt               = require('jsonwebtoken'),
 moment            = require('moment'),
 util              = require('util'),
-multer = require('multer'),
-upload = multer();
+cloudinary = require('cloudinary');
 
 
 exports.index = function(req, res, next) {
@@ -31,7 +30,17 @@ exports.token = function(req, res){
 };
 
 exports.upload = function(req, res){
+	let filePath = req.files.file.path;
+	cloudinary.config({
+	  cloud_name: 'arrc',
+	  api_key: '614793835855469',
+	  api_secret: 'Km1v5oSmgyW7f4RDgZW4I6_DsVo'
+	});
 	console.log("Files: \n", util.inspect(req.files , { depth: null }));
+	console.log(filePath);
+	cloudinary.uploader.upload(filePath, function(result) {
+	  console.log(result);
+	});
 	res.status(200).json({message: 'done'});
 };
 

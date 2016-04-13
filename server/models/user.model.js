@@ -19,7 +19,11 @@ let UserSchema =  mongoose.Schema({
   bloodGroup: String,
   isActive: {type: Boolean, default: false},
   isAdmin: {type: Boolean, default: false},
-  remarks: String
+  remarks: String,
+  profileImageUrl: String,
+  profileImagePublicId: String,
+  passwordResetToken: String,
+  passwordResetTokenExpiry: Date
 });
 
 /**
