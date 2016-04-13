@@ -68,11 +68,23 @@
 			return dfd.promise;
 		};
 
-		// profile
-		o.changePassword = function(changePasswordData){
-			console.log(changePasswordData);
+		// forgot password
+		o.forgotPassword = function(forgotPasswordData){
 			var dfd = $q.defer();
-			$http.put('/api/user/password',changePasswordData)
+			$http.post('/auth/forgot',forgotPasswordData)
+				.success(function(res){
+					dfd.resolve(res);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
+		// change password
+		o.changePassword = function(token, changePasswordData){
+			var dfd = $q.defer();
+			$http.post('/auth/reset/' + token,changePasswordData)
 				.success(function(res){
 					dfd.resolve(res.data);
 				})

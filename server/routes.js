@@ -3,6 +3,7 @@
 module.exports = function(app) {
   var core       = require('./controllers/core.controller.js'),
     user         = require('./controllers/user.controller.js'),
+    password     = require('./controllers/users/user.password.controller.js'),
     camp         = require('./controllers/camp.controller.js'),
     request      = require('./controllers/request.controller.js'),
     message      = require('./controllers/message.controller.js'),
@@ -22,9 +23,9 @@ var multipartMiddleware = multipart();
   // 'AUTH'
   app.route('/auth/login').post(user.login);
   app.route('/auth/signup').post(user.signup);
-  // app.route('/auth/forgot').post(user.forgot);
-	// app.route('/auth/reset/:token').get(user.validateResetToken);
-	// app.route('/auth/reset/:token').post(user.reset);
+  app.route('/auth/forgot').post(password.forgotPassword);
+	app.route('/auth/reset/:token').get(password.verifyResetToken);
+	app.route('/auth/reset/:token').post(password.resetPassword);
 
   // 'USER'
   app.route('/login').post(user.login);

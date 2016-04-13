@@ -38,6 +38,14 @@
       });
     };
 
+    _this.forgotPassword = function(){
+      User.forgotPassword(_this.forgotPasswordData).then(function(message){
+        ngNotify.set(message, "success");
+      }, function(error){
+        ngNotify.set(error, "error");
+      });
+    };
+
     _this.uploader = new FileUploader({
       url: '/upload',
       withCredentials: true

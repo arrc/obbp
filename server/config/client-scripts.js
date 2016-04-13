@@ -15,6 +15,7 @@ module.exports = [
   // controllers
   'app/controllers/home.ctrl.js',
   'app/controllers/user.ctrl.js',
+  'app/controllers/user.password.ctrl.js',
   'app/controllers/search.ctrl.js',
   'app/controllers/request.ctrl.js',
   'app/controllers/message.ctrl.js',
