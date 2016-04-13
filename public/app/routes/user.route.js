@@ -6,6 +6,10 @@ angular.module('obbp').config(['$stateProvider', function($stateProvider){
     url: '/login-register',
     templateUrl: 'app/views/user/login-register.html'
   })
+  .state('register', {
+    url: '/register',
+    templateUrl: 'app/views/user/register.html'
+  })
   .state('profile', {
     url: '/profile',
     templateUrl: 'app/views/user/profile.html'

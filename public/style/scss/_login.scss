@@ -1,0 +1,60 @@
+.login-container {
+  margin-top: 50px;
+
+  .login-title {
+    text-align: center;
+  }
+}
+
+.forgot-password-link {
+  text-align: center;
+  a {
+    color: #9B9B9B;
+    font-family: 'Lato', Helvetica, Arial;
+  }
+}
+
+.register-button {
+  font-family: 'Raleway', Helvetica, Arial;
+  border-color: #D0C9C9;
+  border-width: 2px;
+  padding-top: 7px;
+  font-size: 16px;
+  height: 40px;
+  background-color: #D2E3C0;
+  color: #A34C4C;
+
+  &:focus {
+    border-color: #9C9191;
+    border-width: 2px;
+    font-size: 16px;
+    height: 40px;
+    color: #A34C4C;
+  }
+}
+
+.login-form {
+  input[type="submit"] {
+    color: #A34C4C;
+    padding-top: 7px;
+    font-family: 'Raleway', Helvetica, Arial;
+    margin-bottom: 0;
+  }
+
+  input[type="text"], input[type="password"], select, textarea, input[type="submit"] {
+    font-family: 'Raleway', Helvetica, Arial;
+    border-color: #D0C9C9;
+    border-width: 2px;
+    font-size: 16px;
+    height: 40px;
+  }
+
+  input[type="text"]:focus,
+  select:focus,
+  input[type="submit"]:focus {
+    border-color: #9C9191;
+    border-width: 2px;
+    font-size: 16px;
+    height: 40px;
+  }
+}

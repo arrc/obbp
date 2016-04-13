@@ -1,0 +1,23 @@
+.forgot-password-container {
+  margin-top: 50px;
+
+  input[type="submit"] {
+    padding-top: 7px;
+  }
+
+  input[type="text"], input[type="submit"] {
+    font-family: 'Raleway', Helvetica, Arial;
+    border-color: #D0C9C9;
+    border-width: 2px;
+    font-size: 16px;
+    height: 40px;
+  }
+
+  input[type="text"]:focus,
+  input[type="submit"]:focus {
+    border-color: #9C9191;
+    border-width: 2px;
+    font-size: 16px;
+    height: 40px;
+  }
+}

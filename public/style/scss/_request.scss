@@ -1,0 +1,41 @@
+.blood-request-container {
+  margin-top: 50px;
+}
+
+.blood-request-title {
+  text-align: center;
+}
+
+.blood-request-form {
+  input[type="submit"] {
+    padding-top: 7px;
+    font-family: 'Raleway', Helvetica, Arial;
+  }
+
+  input[type="text"], select, textarea, input[type="submit"] {
+    font-family: 'Raleway', Helvetica, Arial;
+    border-color: #D0C9C9;
+    border-width: 2px;
+    font-size: 16px;
+    height: 40px;
+  }
+
+  textarea.message {
+    height: 150px;
+  }
+
+  input[type="text"]:focus,
+  select:focus,
+  input[type="submit"]:focus {
+    border-color: #9C9191;
+    border-width: 2px;
+    font-size: 16px;
+    height: 40px;
+  }
+
+  label {
+    text-transform: uppercase;
+    color: #A34C4C;
+    font-family: 'Lato-Bold', Helvetica, Arial;
+  }
+}
