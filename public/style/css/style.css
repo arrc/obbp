@@ -43,12 +43,20 @@ label {
   color: #A34C4C;
   font-family: 'Lato-Bold', Helvetica, Arial; }
 
+input[type="radio"] + label {
+  text-transform: capitalize;
+  color: gray;
+  font-family: 'Lato', Helvetica, Arial; }
+
 input[type="text"], input[type="password"], input[type="email"], select, textarea, input[type="submit"], input[type="cancel"] {
   font-family: 'Raleway', Helvetica, Arial;
   border-color: #D0C9C9;
   border-width: 2px;
   font-size: 16px;
   height: 40px; }
+
+.navbar-container {
+  margin-bottom: 50px; }
 
 nav.top-bar li a {
   text-transform: uppercase; }
@@ -80,6 +88,24 @@ footer {
     font-family: 'Raleway-Light', Helvetica, Arial;
     font-size: .7rem;
     margin-bottom: 5px; }
+
+.admin-dashboard-nav {
+  margin-top: 50px; }
+
+.auc-controls {
+  margin-bottom: 20px; }
+  .auc-controls input[data-toggle] {
+    display: none; }
+  .auc-controls input[type="radio"] + label {
+    text-transform: capitalize;
+    color: white;
+    font-family: 'Lato', Helvetica, Arial; }
+  .auc-controls input[data-toggle]:checked + label,
+  .auc-controls input[data-toggle]:checked + label:active {
+    background-color: salmon;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05); }
+  .auc-controls .button-group.toggle li:not(first-child) {
+    margin: 0 -0.9rem; }
 
 @font-face {
   font-family: 'Arvo';

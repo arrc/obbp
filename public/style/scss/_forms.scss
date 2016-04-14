@@ -4,6 +4,12 @@ label {
   font-family: 'Lato-Bold', Helvetica, Arial;
 }
 
+input[type="radio"] + label {
+  text-transform: capitalize;
+  color: gray;
+  font-family: 'Lato', Helvetica, Arial;
+}
+
 input[type="text"], input[type="password"], input[type="email"], select, textarea, input[type="submit"], input[type="cancel"] {
   font-family: 'Raleway', Helvetica, Arial;
   border-color: #D0C9C9;

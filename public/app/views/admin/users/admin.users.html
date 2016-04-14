@@ -1,13 +1,50 @@
 <section ng-controller="AdminUsersCtrl as vm" ng-init="vm.retriveUsers()">
   <div class="row">
-    <div class="large-6 large-centered columns">
+    <div class="large-9 large-centered columns admin-users-container">
       <h3>Users</h3>
-      <section ng-repeat="user in vm.users">
-        <p ng-click="vm.retriveUser(user)">{{ user.fullName}}</p>
+      <!-- controls -->
+      <section class="auc-controls clearfix">
+        <div class="left">
+          <input type="text" class="aut-controls-search" ng-model="vm.userSearch" placeholder="Search users">
+        </div>
+        <div class="right">
+          <ul class="button-group toggle auc-controls-toggles" data-toggle="buttons-radio">
+            <li>
+              <input type="radio" id="auc-all-users" name="r-group" data-toggle="button">
+              <label class="button tiny" for="auc-all-users">All</label>
+            </li>
+            <li>
+              <input type="radio" id="auc-inactive-users" name="r-group" data-toggle="button">
+              <label class="button tiny" for="auc-inactive-users">Inactive</label>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- users list -->
+      <section class="admin-users-list-container" ng-repeat="user in vm.users">
+        <!-- <p ng-click="vm.retriveUser(user)">{{ user.fullName}}</p>
         <div class="clearfix">
           <button class="left button tiny secondary" ng-click="vm.sendMessage(user)">Message</button>
           <button class="right button tiny warn" ng-click="vm.deleteUser(user)">Delete</button>
+        </div> -->
+
+        <div class="aulc-user-object clearfix">
+          <section class="aulc-uo-profile-pic left">
+            <img class="pic-image" src="images/user.jpg">
+          </section>
+          <section class="aulc-uo-details-wrapper right">
+            <div ng-click="vm.retriveUser(user)" class="aulc-uo-info">
+              <p>{{ user.fullName}}</p>
+              <p ng-click="vm.retriveUser(user)">{{ user.username}}</p>
+              <p ng-click="vm.retriveUser(user)">{{ user.bloodGroup}}</p>
+            </div>
+            <div class="aulc-uo-tools">
+              <span>some tools here</span>
+            </div>
+          </section>
         </div>
+
       </section>
     </div>
   </div>
