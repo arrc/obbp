@@ -1,6 +1,6 @@
 <section ng-controller="AdminUsersCtrl as vm" ng-init="vm.retriveUsers()">
   <div class="row">
-    <div class="large-9 large-centered columns admin-users-container">
+    <div class="large-10 large-centered columns admin-users-container">
       <h3>Users</h3>
       <!-- controls -->
       <section class="auc-controls clearfix">
@@ -21,29 +21,41 @@
         </div>
       </section>
 
+      <ul class="small-block-grid-2 admin-users-list-container">
+        <li ng-repeat="user in vm.users">
+          <!-- user object -->
+          <div class="aulc-user-object clearfix">
+            <!-- profile pic -->
+            <section class="aulc-uo-profile-pic left">
+              <img class="pic-image" src="images/user.jpg">
+            </section>
+            <!-- details wrapper -->
+            <section class="aulc-uo-details-wrapper right">
+              <!-- info -->
+              <div class="aulc-uo-info">
+                <p>{{ user.fullName}}</p>
+                <p>{{ user.username}}</p>
+                <p>{{ user.bloodGroup}}</p>
+              </div>
+              <!-- tools -->
+              <div class="aulc-uo-tools">
+                <i class="fa fa-edit" title="Edit user" ng-click="vm.retriveUser(user)"></i>
+                <i class="fa fa-envelope" title="Send message" ng-click="vm.sendMessage(user)"></i>
+                <i class="fa fa-trash" title="Delete user" ng-click="vm.deleteUser(user)"></i>
+              </div>
+            </section>
+          </div>
+        </li>
+      </ul>
       <!-- users list -->
-      <section class="admin-users-list-container" ng-repeat="user in vm.users">
+      <section>
         <!-- <p ng-click="vm.retriveUser(user)">{{ user.fullName}}</p>
         <div class="clearfix">
           <button class="left button tiny secondary" ng-click="vm.sendMessage(user)">Message</button>
           <button class="right button tiny warn" ng-click="vm.deleteUser(user)">Delete</button>
         </div> -->
 
-        <div class="aulc-user-object clearfix">
-          <section class="aulc-uo-profile-pic left">
-            <img class="pic-image" src="images/user.jpg">
-          </section>
-          <section class="aulc-uo-details-wrapper right">
-            <div ng-click="vm.retriveUser(user)" class="aulc-uo-info">
-              <p>{{ user.fullName}}</p>
-              <p ng-click="vm.retriveUser(user)">{{ user.username}}</p>
-              <p ng-click="vm.retriveUser(user)">{{ user.bloodGroup}}</p>
-            </div>
-            <div class="aulc-uo-tools">
-              <span>some tools here</span>
-            </div>
-          </section>
-        </div>
+
 
       </section>
     </div>

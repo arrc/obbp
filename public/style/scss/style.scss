@@ -4,16 +4,24 @@
 @import "home";
 @import "core/navbar";
 @import "core/footer";
+
+// Admin
 @import "admin/admin";
 @import "admin/admin-dashboard";
 @import "admin/sub-navbar";
 @import "admin/users";
+@import "admin/requests";
+@import "admin/camps";
+
+// 
 @import "camps";
 @import "general";
+
+// Auth
 @import "auth/login";
 @import "auth/register";
+@import "auth/forgot";
 @import "message";
 @import "profile";
 @import "request";
 @import "search";
-@import "forgot";

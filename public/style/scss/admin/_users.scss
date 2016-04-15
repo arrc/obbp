@@ -34,3 +34,46 @@ $selected-color: salmon;
 .auc-controls-toggles {
 
 }
+
+.admin-users-list-container {
+
+  .aulc-user-object {
+    background-color: #D3C3C0;
+    height: 140px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .aulc-uo-profile-pic {
+      width: 40%;
+      .pic-image {
+          width: 120px;
+          height: 120px;
+          border-radius: 60px;
+          border: 2px solid gray;
+      }
+    }
+
+    .aulc-uo-details-wrapper{
+      width: 60%;
+      .aulc-uo-info{
+        p { margin-bottom: 5px}
+      }
+
+      .aulc-uo-tools{
+        margin-left: 55%;
+
+        i {
+          padding: 5px;
+          color: gray;
+          font-size: 20px;
+        }
+
+        i:hover {
+          color: lighten(#9B9B9B , 8);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

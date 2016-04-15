@@ -1,26 +1,70 @@
 <section ng-controller="AdminRequestsCtrl as vm" ng-init="vm.retriveRequests()">
   <div class="row">
-    <h3>requests</h3>
-    <table>
-      <tbody>
-        <tr ng-repeat="request in vm.requests">
-          <td width="400">
-            <div class="panel">
-              <p ng-click="vm.retriveRequest(request)">{{request.user.fullName}}</p>
-              <p>{{ request.purpose }}</p>
-              <section ng-if="request.remarks">
-                <hr>
-                <p>{{ request.remarks }}</p>
-              </section>
-              <div class="clearfix">
-                <small class="left label round info">{{ request.status }}</small>
-                <button class="left button tiny secondary" ng-click="vm.sendMessage(request)">Message</button>
-                <button class="right button tiny" ng-click="vm.deleteRequest(request)">Delete</button>
-              </div>
+    <div class="large-10 large-centered columns admin-requests-container">
+
+      <!-- controls -->
+      <section class="requests-title-area clearfix">
+        <h3 class="left">Requests</h3>
+
+        <div class="right">
+          <ul class="button-group toggle arc-controls-toggles" data-toggle="buttons-radio">
+            <li>
+              <input type="radio" id="arc-all-requests" name="r-group" data-toggle="button">
+              <label class="button tiny" for="arc-all-requests">All</label>
+            </li>
+            <li>
+              <input type="radio" id="arc-pending-requests" name="r-group" data-toggle="button">
+              <label class="button tiny" for="arc-pending-requests">Pending</label>
+            </li>
+            <li>
+              <input type="radio" id="arc-approved-requests" name="r-group" data-toggle="button">
+              <label class="button tiny" for="arc-approved-requests">Approved</label>
+            </li>
+            <li>
+              <input type="radio" id="arc-rejected-requests" name="r-group" data-toggle="button">
+              <label class="button tiny" for="arc-rejected-requests">Rejected</label>
+            </li>
+            <li>
+              <input type="radio" id="arc-processing-requests" name="r-group" data-toggle="button">
+              <label class="button tiny" for="arc-processing-requests">Processing</label>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <ul class="small-block-grid-1 admin-requests-list-container">
+        <li class="request-object" ng-repeat="request in vm.requests">
+
+          <!-- Purpose -->
+          <section class="purpose">
+            <p>{{ request.purpose }}</p>
+          </section>
+
+          <!-- Message -->
+          <section class="message">
+            <p>{{ request.message }}</p>
+          </section>
+
+          <!-- Meta tools wrapper -->
+          <section class="meta-tools-wrapper clearfix">
+            <!-- Meta -->
+            <div class="meta left">
+              <!-- sender --> <span class="sender"><i class="fa fa-user"></i> {{ request.user.fullName }}</span>
+              <!-- bloodGroup --> <span class="blood-group"><i class="fa fa-ambulance"></i> {{ request.bloodGroup }}</span>
+              <!-- state --> <span class="state"><i class="fa fa-map-marker"></i> {{ request.state }}</span>
+              <!-- date --> <span class="date"><i class="fa fa-calendar-o"></i> {{ request.created | date : 'd/M/yyyy'}}</span>
+              <!-- status --> <span class="status"><i class="fa fa-dot-circle-o"></i> {{ request.status }}</span>
             </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+
+            <!-- Tools -->
+            <div class="tools right">
+              <i class="fa fa-edit" title="Edit request" ng-click="vm.retriveRequest(request)"></i>
+              <i class="fa fa-envelope" title="Send message" ng-click="vm.sendMessage(request)"></i>
+              <i class="fa fa-trash" title="Delete request" ng-click="vm.deleteRequest(request)"></i>
+            </div>
+          </section>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>

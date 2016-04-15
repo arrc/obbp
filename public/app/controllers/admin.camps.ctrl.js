@@ -39,6 +39,16 @@
 // retrive camp and update camp
     _this.retriveCamp = function(camp){
       ngDialog.open({
+        template: 'app/views/admin/camp/camp-modal.html',
+        controller: ['$scope', function($scope){
+          $scope.camp = camp;
+        }]
+      });
+    };
+
+// retrive camp and update camp
+    _this.updateCampModal = function(camp){
+      ngDialog.open({
         template: 'app/views/admin/camp/camp-edit-form.html',
         controller: ['$scope', 'lodash', 'Camp', 'State', 'moment', function($scope, lodash, Camp, State, moment){
           $scope.states = State.state();

@@ -24,9 +24,11 @@ module.exports = [
   'app/controllers/admin.users.ctrl.js',
   'app/controllers/admin.camps.ctrl.js',
   // routes
+  'app/routes/misc.route.js',
   'app/routes/user.route.js',
   'app/routes/search.route.js',
   'app/routes/request.route.js',
   'app/routes/message.route.js',
-  'app/routes/admin.route.js'
+  'app/routes/admin.route.js',
+  'app/routes/camp.route.js'
 ];

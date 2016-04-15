@@ -13,6 +13,12 @@ footer {
     list-style: none;
     font-family: 'Lato-Light', Helvetica, Arial;
     font-size: .9rem;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      color: lighten(#E0CDC7, 30);
+    }
   }
 
   .helpline {

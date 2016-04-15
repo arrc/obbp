@@ -1,26 +1,43 @@
 <section class="row" ng-controller="CampCtrl as vm" ng-init="vm.retriveCamps()">
-  <div class="large-12 columns">
-    <div class="clearfix">
+  <div class="large-10 large-centered columns admin-camps-container">
+    <div class="clearfix camps-title-area">
       <h3 class="left">Camps</h3>
       <button class="right button small secondary" ng-click="vm.createCamp()">Create camp</button>
     </div>
 
-    <table>
-      <tbody>
-        <tr ng-repeat="camp in vm.camps">
-          <td width="500">
-            <div class="panel">
-              <p>{{ camp.description }}</p>
-              <p>{{ camp.state }}</p>
-              <div class="clearfix">
-                <p class="left">Date: {{ camp.date }} Time: {{ camp.time }}</p>
-                <button class="right button tiny info" ng-click="vm.retriveCamp(camp)">Edit</button>
-                <button class="right button tiny alert" ng-click="vm.deleteCamp(camp)">Delete</button>
-              </div>
+    <ul class="small-block-grid-2 admin-camps-list-container">
+      <li  ng-repeat="camp in vm.camps">
+        <div class="camp-object">
+          <!-- Title -->
+          <section class="title">
+            <p>{{ camp.title }}</p>
+          </section>
+
+          <!-- Description -->
+          <!-- <section class="description">
+            <p>{{ camp.description }}</p>
+          </section> -->
+
+          <!-- Meta tools wrapper -->
+          <section class="meta-tools-wrapper clearfix">
+            <!-- Meta -->
+            <div class="meta left">
+              <!-- state --> <span class="state"><i class="fa fa-map-marker"></i> {{ camp.state }}</span> <br>
+              <!-- date --> <span class="date"><i class="fa fa-calendar-o"></i> {{ camp.date }}</span>
+              <!-- time --> <span class="time"><i class="fa fa-clock-o"></i> {{ camp.time }}</span>
             </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+
+            <!-- Tools -->
+            <div class="tools right">
+              <i class="fa fa-folder-open-o" title="View camp detail" ng-click="vm.retriveCamp(camp)"></i>
+              <i class="fa fa-edit" title="Edit camp details" ng-click="vm.updateCampModal(camp)"></i>
+              <i class="fa fa-trash" title="Delete camp" ng-click="vm.deleteCamp(camp)"></i>
+            </div>
+          </section>
+        </div>
+
+      </li>
+    </ul>
+
   </div>
 </section>

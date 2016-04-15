@@ -73,6 +73,10 @@ footer {
     list-style: none;
     font-family: 'Lato-Light', Helvetica, Arial;
     font-size: .9rem; }
+    .main-footer ul li:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      color: white; }
   .main-footer .helpline p {
     font-family: 'Arvo', Helvetica, Arial; }
 
@@ -89,9 +93,6 @@ footer {
     font-size: .7rem;
     margin-bottom: 5px; }
 
-.admin-dashboard-nav {
-  margin-top: 50px; }
-
 .auc-controls {
   margin-bottom: 20px; }
   .auc-controls input[data-toggle] {
@@ -106,6 +107,142 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05); }
   .auc-controls .button-group.toggle li:not(first-child) {
     margin: 0 -0.9rem; }
+
+.admin-users-list-container .aulc-user-object {
+  background-color: #D3C3C0;
+  height: 140px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px; }
+  .admin-users-list-container .aulc-user-object .aulc-uo-profile-pic {
+    width: 40%; }
+    .admin-users-list-container .aulc-user-object .aulc-uo-profile-pic .pic-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 60px;
+      border: 2px solid gray; }
+  .admin-users-list-container .aulc-user-object .aulc-uo-details-wrapper {
+    width: 60%; }
+    .admin-users-list-container .aulc-user-object .aulc-uo-details-wrapper .aulc-uo-info p {
+      margin-bottom: 5px; }
+    .admin-users-list-container .aulc-user-object .aulc-uo-details-wrapper .aulc-uo-tools {
+      margin-left: 55%; }
+      .admin-users-list-container .aulc-user-object .aulc-uo-details-wrapper .aulc-uo-tools i {
+        padding: 5px;
+        color: gray;
+        font-size: 20px; }
+      .admin-users-list-container .aulc-user-object .aulc-uo-details-wrapper .aulc-uo-tools i:hover {
+        color: #afafaf;
+        cursor: pointer; }
+
+.requests-title-area {
+  margin-bottom: 20px; }
+  .requests-title-area input[data-toggle] {
+    display: none; }
+  .requests-title-area input[type="radio"] + label {
+    text-transform: capitalize;
+    color: white;
+    font-family: 'Lato', Helvetica, Arial; }
+  .requests-title-area input[data-toggle]:checked + label,
+  .requests-title-area input[data-toggle]:checked + label:active {
+    background-color: salmon;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05); }
+  .requests-title-area .button-group.toggle li:not(first-child) {
+    margin: 0 -0.9rem; }
+
+.request-object {
+  background-color: #fff;
+  margin-bottom: 5px; }
+  .request-object .purpose {
+    margin-top: 10px; }
+    .request-object .purpose p {
+      margin-bottom: 5px;
+      font-size: 16px;
+      color: gray;
+      font-family: 'Lato', Helvetica, Arial; }
+  .request-object .message {
+    color: #999999; }
+    .request-object .message p {
+      margin-bottom: 3px;
+      font-family: 'Raleway', Helvetica, Arial;
+      font-size: 14px; }
+  .request-object .meta-tools-wrapper {
+    margin-top: 30px; }
+    .request-object .meta-tools-wrapper .meta i {
+      color: #9a8079;
+      margin-right: 5px;
+      font-size: 16px; }
+    .request-object .meta-tools-wrapper .meta span {
+      display: inline-block;
+      color: #C6B7B3;
+      font-family: 'Lato-Light', Helvetica, Arial;
+      font-size: 14px;
+      margin-right: 10px; }
+    .request-object .meta-tools-wrapper .meta .sender {
+      width: 150px; }
+    .request-object .meta-tools-wrapper .meta .blood-group {
+      width: 50px; }
+    .request-object .meta-tools-wrapper .meta .state {
+      width: 150px; }
+    .request-object .meta-tools-wrapper .meta .date, .request-object .meta-tools-wrapper .meta .status {
+      width: 100px; }
+    .request-object .meta-tools-wrapper .tools i {
+      color: #C6B7B3;
+      margin-right: 5px;
+      font-size: 20px; }
+    .request-object .meta-tools-wrapper .tools i:hover {
+      color: #dcd3d0;
+      cursor: pointer; }
+
+.camp-object {
+  background-color: #fff;
+  padding: 5px 10px; }
+  .camp-object .title {
+    height: 50px;
+    margin-top: 10px; }
+    .camp-object .title p {
+      margin-bottom: 5px;
+      font-size: 16px;
+      color: gray;
+      font-family: 'Lato', Helvetica, Arial; }
+  .camp-object .meta-tools-wrapper {
+    margin-top: 30px; }
+    .camp-object .meta-tools-wrapper .meta i {
+      color: #9a8079;
+      margin-right: 5px;
+      font-size: 16px; }
+    .camp-object .meta-tools-wrapper .meta span {
+      display: inline-block;
+      color: #C6B7B3;
+      font-family: 'Lato-Light', Helvetica, Arial;
+      font-size: 14px;
+      margin-right: 10px; }
+    .camp-object .meta-tools-wrapper .meta .date, .camp-object .meta-tools-wrapper .meta .time {
+      width: 100px; }
+    .camp-object .meta-tools-wrapper .tools i {
+      color: #C6B7B3;
+      margin-right: 5px;
+      font-size: 20px; }
+    .camp-object .meta-tools-wrapper .tools i:hover {
+      color: #dcd3d0;
+      cursor: pointer; }
+
+.camp-modal {
+  color: #C6B7B3;
+  font-size: 14px;
+  font-family: 'Raleway', Helvetica, Arial; }
+  .camp-modal .title {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: gray;
+    font-family: 'Lato', Helvetica, Arial; }
+  .camp-modal .description {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #999;
+    font-family: 'Raleway', Helvetica, Arial; }
 
 @font-face {
   font-family: 'Arvo';
@@ -194,6 +331,23 @@ pre {
   border-width: 2px;
   font-size: 16px;
   height: 40px; }
+
+.forgot-password-container {
+  margin-top: 50px; }
+  .forgot-password-container input[type="submit"] {
+    padding-top: 7px; }
+  .forgot-password-container input[type="text"], .forgot-password-container input[type="submit"] {
+    font-family: 'Raleway', Helvetica, Arial;
+    border-color: #D0C9C9;
+    border-width: 2px;
+    font-size: 16px;
+    height: 40px; }
+  .forgot-password-container input[type="text"]:focus,
+  .forgot-password-container input[type="submit"]:focus {
+    border-color: #9C9191;
+    border-width: 2px;
+    font-size: 16px;
+    height: 40px; }
 
 .profile-divider {
   height: 50px;
@@ -376,20 +530,3 @@ pre {
       font-family: 'Lato', Helvetica, Arial; }
       .user-profile-container .upc-message p i {
         margin-right: 5px; }
-
-.forgot-password-container {
-  margin-top: 50px; }
-  .forgot-password-container input[type="submit"] {
-    padding-top: 7px; }
-  .forgot-password-container input[type="text"], .forgot-password-container input[type="submit"] {
-    font-family: 'Raleway', Helvetica, Arial;
-    border-color: #D0C9C9;
-    border-width: 2px;
-    font-size: 16px;
-    height: 40px; }
-  .forgot-password-container input[type="text"]:focus,
-  .forgot-password-container input[type="submit"]:focus {
-    border-color: #9C9191;
-    border-width: 2px;
-    font-size: 16px;
-    height: 40px; }

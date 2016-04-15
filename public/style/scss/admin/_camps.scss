@@ -1,0 +1,83 @@
+// Camp Object
+.camp-object {
+
+  background-color: #fff;
+  padding: 5px 10px;
+
+// Title
+  .title {
+    height: 50px;
+    margin-top: 10px;
+
+    p {
+      margin-bottom: 5px;
+      font-size: 16px;
+      color: darken(#999999, 10);
+      font-family: 'Lato', Helvetica, Arial;
+     }
+  } // camp-object .title
+
+// Meta tools wrapper
+  .meta-tools-wrapper{
+
+    margin-top: 30px;
+
+// Meta
+    .meta {
+      i {
+        color: darken(#C6B7B3, 20);
+        margin-right: 5px;
+        font-size: 16px;
+      }
+
+      span {
+        display: inline-block;
+        color: #C6B7B3;
+        font-family: 'Lato-Light', Helvetica, Arial;
+        font-size: 14px;
+        margin-right: 10px;
+      }
+
+      .date, .time { width: 100px;  }
+    } // meta-tools-wrapper .meta
+
+// Tools
+    .tools {
+      i {
+        color: #C6B7B3;
+        margin-right: 5px;
+        font-size: 20px;
+      }
+
+      i:hover {
+        color: lighten(#C6B7B3 , 10);
+        cursor: pointer;
+      }
+    } // meta-tools-wrapper .tools
+  } // camp-object .meta-tools-wrapper
+} // camp-object
+
+// Camp modal
+.camp-modal {
+  color: #C6B7B3;
+  font-size: 14px;
+  font-family: 'Raleway', Helvetica, Arial;
+
+  .title {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: darken(#999999, 10);
+    font-family: 'Lato', Helvetica, Arial;
+  }
+
+  .description {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #999;
+    font-family: 'Raleway', Helvetica, Arial;
+  }
+
+
+}

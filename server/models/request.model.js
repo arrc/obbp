@@ -10,6 +10,7 @@ let RequestSchema = mongoose.Schema({
   user: {type: String, ref: 'User'},
   status: {type: String, enum: ['approved', 'pending', 'rejected', 'processing'], default: 'pending'},
   remarks: String,
+  created: { type: Date, default: Date.now },
   updated: Date
 });
 
