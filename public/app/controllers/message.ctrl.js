@@ -14,6 +14,7 @@
     _this.retriveMessages = function(){
       Message.retriveMessages().then(function(data){
         _this.messages = data;
+        _this.messageCount = _this.messages.length;
       }, function(error){
         console.log(error);
         ngNotify.set(error.message, "error");

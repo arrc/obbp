@@ -3,7 +3,8 @@
 <!-- profile -->
     <div class="row profile-info-header">
       <div class="clearfix profile-info-container">
-          <img class="left pic-image" src="images/user.jpg">
+          <!-- <img class="left pic-image" src="images/user.jpg"> -->
+          <img class="left pic-image" ng-src="{{ vm.user.profileImageUrl || 'images/user.jpg'}}">
           <section class="pic-info">
             <h1>{{ vm.user.fullName }}</h1>
             <h4>{{ vm.user.bloodGroup }}</h4>
@@ -22,7 +23,7 @@
         <!-- message count -->
         <section class="clearfix amc-title-container">
           <h2 class="left  amc-title">MESSAGES</h2>
-          <h2 class="right amc-count">6</h2>
+          <h2 class="right amc-count">{{ vm.messageCount }}</h2>
         </section>
 
         <!-- messages list -->
@@ -38,6 +39,6 @@
         </section>
       </div>
     </div>
-    <hr>  <pre class="row">{{ vm.user | json }}</pre>
+    <!-- <hr>  <pre class="row">{{ vm.user | json }}</pre> -->
 
 </section>
