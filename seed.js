@@ -19,7 +19,7 @@ Message     = require(path.join(__dirname, "server", "models", "message.model.js
 = Users =
 ===============================================>>>>>*/
 var usersArray = [
-  {username: 'admin', email: 'admin@arrc.in', password: 'admin', firstName: 'Naveen', lastName: 'Kumar', mobile: 95345342342, address: '23-rew, rwo4234, delhi', state: 'Delhi', pincode: '231211', dateOfBirth: '21-11-1993', gender: 'male', bloodGroup: 'A+', weight: 23, isActive: true, isAdmin: true },
+  {username: 'admin', email: 'naveen@arrc.in', password: 'admin', firstName: 'Naveen', lastName: 'Kumar', mobile: 95345342342, address: '23-rew, rwo4234, delhi', state: 'Delhi', pincode: '231211', dateOfBirth: '21-11-1993', gender: 'male', bloodGroup: 'A+', weight: 23, isActive: true, isAdmin: true },
   {username: 'neha', email: 'neha@arrc.in', password: 'admin', firstName: 'Neha', lastName: 'Singh', mobile: 95345342342, address: '23-rew, rwo4234, Maharashtra', state: 'Maharashtra', pincode: '231211', dateOfBirth: '21-11-1993', gender: 'female', bloodGroup: 'A+', weight: 23, isActive: true, isAdmin: false },
   {username: 'ram', email: 'ram@arrc.in', password: 'admin', firstName: 'Ram', lastName: 'Kumar', mobile: 95345342342, address: '23-rew, rwo4234, Maharashtra', state: 'Maharashtra', pincode: '231211', dateOfBirth: '21-11-1993', gender: 'male', bloodGroup: 'A+', weight: 23, isActive: true, isAdmin: false },
   {username: 'richa', email: 'richa@arrc.in', password: 'admin', firstName: 'Richa', lastName: 'Thakur', mobile: 95345342342, address: '23-rew, rwo4234, Gujrat', state: 'Gujrat', pincode: '231211', dateOfBirth: '21-11-1993', gender: 'female', bloodGroup: 'A-', weight: 23, isActive: true, isAdmin: false },
