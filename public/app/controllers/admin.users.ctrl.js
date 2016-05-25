@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-	var AdminUsersCtrl = function($http, ngNotify, ngDialog, NgTableParams, User, Admin){
+	var AdminUsersCtrl = function($http, ngNotify, ngDialog, lodash, NgTableParams, User, Admin){
 		var _this = this;
     _this.test = "this is a test message from AdminUsersCtrl";
 
@@ -52,6 +52,7 @@
 		'$http',
     'ngNotify',
     'ngDialog',
+    'lodash',
     'NgTableParams',
     'User',
     'Admin',

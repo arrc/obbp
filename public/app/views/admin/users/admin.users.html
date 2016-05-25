@@ -22,7 +22,7 @@
       </section>
 
       <ul class="small-block-grid-2 admin-users-list-container">
-        <li ng-repeat="user in vm.users">
+        <li ng-repeat="user in vm.users | filter:vm.userSearch">
           <!-- user object -->
           <div class="aulc-user-object clearfix">
             <!-- profile pic -->
