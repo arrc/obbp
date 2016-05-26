@@ -1,11 +1,11 @@
 'use strict';
 
 var config = {
-  'jwtSecretKey' : 'super-sercret-key',
+  'jwtSecretKey' : process.env.SECRET_TOKEN || 'super-sercret-key',
   'dbName' : 'obbp',
-  'cloudinaryCloudName' : 'arrc',
-  'cloudinaryApiKey': '614793835855469',
-  'cloudinaryApiSecret': 'Km1v5oSmgyW7f4RDgZW4I6_DsVo',
+  'cloudinaryCloudName' : process.env.CLOUDINARY_CLOUD_NAME || 'arrc',
+  'cloudinaryApiKey': process.env.CLOUDINARY_API_KEY || '614793835855469',
+  'cloudinaryApiSecret': process.env.CLOUDINARY_API_SECRET ||  'Km1v5oSmgyW7f4RDgZW4I6_DsVo',
   mailer: {
         from: process.env.MAILER_FROM || 'obbp@arrc.in',
         options: {

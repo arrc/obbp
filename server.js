@@ -25,12 +25,22 @@ app.set('port', process.env.PORT || 4000);
 /* ==========================================================
 	MONGOOSE
 ============================================================ */
-mongoose.connect('mongodb://localhost/obbp', function(err){
-  if(err) {
-    console.error('\x1b[31m', 'Could not connect to MongoDB!');
-    console.log(err);
-  }
-});
+if(process.env.MONGO_USER && process.env.MONGO_PASSWORD) {
+  mongoose.connect('mongodb://process.env.MONGO_USER:process.env.MONGO_PASSWORD@ds013908.mlab.com:13908/obbp', function(err){
+    if(err) {
+      console.error('\x1b[31m', 'Could not connect to mLab database!');
+      console.log(err);
+    }
+  });
+} else {
+  mongoose.connect('mongodb://localhost/obbp', function(err){
+    if(err) {
+      console.error('\x1b[31m', 'Could not connect to MongoDB!');
+      console.log(err);
+    }
+  });
+}
+
 
 /* ==========================================================
 	SETUP
