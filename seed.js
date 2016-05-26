@@ -1,5 +1,5 @@
 'use strict';
-
+require('dotenv').config();
 let config = require('./server/config'),
 path       = require('path'),
 _          = require('lodash'),
@@ -63,14 +63,22 @@ _.times(50, function(){
  * create
  *
  */
-
-// mongoose.set('debug', true);
-mongoose.connect('mongodb://localhost/' + config.dbName, function(err){
-  if(err) {
-    console.error('\x1b[31m', 'Could not connect to MongoDB!');
-    console.log(err);
-  }
-});
+ if(process.env.MONGO_USER && process.env.MONGO_PASSWORD) {
+   let dbUrl = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds013908.mlab.com:13908/obbp`;
+   mongoose.connect(dbUrl, function(err){
+     if(err) {
+       console.error('\x1b[31m', 'Could not connect to mLab database!');
+       console.log(err);
+     }
+   });
+ } else {
+   mongoose.connect('mongodb://localhost/obbp', function(err){
+     if(err) {
+       console.error('\x1b[31m', 'Could not connect to MongoDB!');
+       console.log(err);
+     }
+   });
+ }
 
 mongoose.connection.once('open', function callback() {
   let usersList, requestsArray = [], campsArray = [];

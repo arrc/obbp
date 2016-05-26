@@ -1,5 +1,5 @@
 'use strict';
-
+require('dotenv').config();
 var express      = require('express'),
   app            = express(),
   config         = require('./server/config'),
@@ -25,8 +25,10 @@ app.set('port', process.env.PORT || 4000);
 /* ==========================================================
 	MONGOOSE
 ============================================================ */
+
 if(process.env.MONGO_USER && process.env.MONGO_PASSWORD) {
-  mongoose.connect('mongodb://process.env.MONGO_USER:process.env.MONGO_PASSWORD@ds013908.mlab.com:13908/obbp', function(err){
+  let dbUrl = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds013908.mlab.com:13908/obbp`;
+  mongoose.connect(dbUrl, function(err){
     if(err) {
       console.error('\x1b[31m', 'Could not connect to mLab database!');
       console.log(err);
