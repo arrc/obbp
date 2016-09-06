@@ -1,4 +1,4 @@
-<section class="row" ng-controller="UserCtrl as vm">
+<section class="row ob_register" ng-controller="UserCtrl as vm">
   <!-- register form -->
   <div class="large-8 large-centered columns register-container">
     <!-- dob, gender, blood-group, weight mobile email address city date-last-donation donation-frequency -->
@@ -37,7 +37,7 @@
       <div class="row">
         <div class="large-6 columns">
           <label>Full Address
-            <textarea rows="5" ng-model="vm.registrationData.address"></textarea>
+            <textarea rows="4" ng-model="vm.registrationData.address"></textarea>
           </label>
         </div>
         <!-- state -->
@@ -70,17 +70,17 @@
       </div>
       <div class="row">
         <!-- weight -->
-        <div class="large-4 columns">
+        <div class="large-6 columns">
           <label>Weight in Kg's <input type="text" ng-model="vm.registrationData.weight" /></label>
         </div>
         <!-- blood-group -->
-        <div class="large-4 columns">
+        <div class="large-6 columns">
           <label>Blood group <input type="text" ng-model="vm.registrationData.bloodGroup" /></label>
         </div>
       </div>
       <!-- Submit button -->
       <div class="row">
-        <div class="large-6 large-centered columns">
+        <div class="large-7 large-centered columns">
           <input type="cancel" value="Cancel" class="button small alert" />
           <input type="submit" value="Register" class="button small success" />
         </div>

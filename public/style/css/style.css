@@ -353,6 +353,9 @@ pre {
   font-size: 16px;
   height: 40px; }
 
+.ob_register input[type="cancel"], .ob_register input[type="submit"] {
+  width: 120px !important; }
+
 .forgot-password-container {
   margin-top: 50px; }
   .forgot-password-container input[type="submit"] {
@@ -369,6 +372,12 @@ pre {
     border-width: 2px;
     font-size: 16px;
     height: 40px; }
+
+.ob_profile_edit--cancel {
+  padding: 13px !important; }
+
+.ob_profile_edit--update {
+  padding: 10px !important; }
 
 .profile-divider {
   height: 50px;
