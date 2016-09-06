@@ -38,6 +38,15 @@ pre {
   color: grey;
   font-size: .8rem; }
 
+.ob_global h2 {
+  font-family: 'Raleway'; }
+
+.ob_global p {
+  font-family: 'Arvo'; }
+
+.ob_margin {
+  margin: 30px; }
+
 label {
   text-transform: uppercase;
   color: #A34C4C;
@@ -55,11 +64,21 @@ input[type="text"], input[type="password"], input[type="email"], select, textare
   font-size: 16px;
   height: 40px; }
 
+.ob_home {
+  margin-top: -50px; }
+
+.ob_home .row {
+  padding-top: 20px;
+  background-color: white; }
+
 .navbar-container {
   margin-bottom: 50px; }
 
 nav.top-bar li a {
   text-transform: uppercase; }
+
+.ob_footer .columns:first-child {
+  margin-top: 45px; }
 
 footer {
   background: #CA6A6A; }
