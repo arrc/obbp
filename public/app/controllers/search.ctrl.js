@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-	var SearchCtrl = function($http, ngDialog, State, User, Search){
+	var SearchCtrl = function($http, Auth, ngNotify, ngDialog, State, User, Search){
 		var _this = this;
     _this.user = {};
     _this.test = "this a search page.";
@@ -14,6 +14,10 @@
     };
 
     _this.dialog = function(user){
+      if (!Auth.isAuthenticated()) {
+        ngNotify.set('You must be logged in for sending message to the users.');
+        return
+      }
       ngDialog.open({
         template: 'app/views/message/message-dialog.html',
         controller: ['$scope', 'lodash', 'Message', function($scope, lodash, Message){
@@ -35,6 +39,8 @@
 	============================================================ */
 	angular.module('obbp').controller('SearchCtrl',[
 		'$http',
+    'Auth',
+    'ngNotify',
     'ngDialog',
     'State',
     'User',
