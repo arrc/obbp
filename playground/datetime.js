@@ -1,3 +1,8 @@
+// THIS FILE LIKE ANYOTHER FILE IN THIS FOLDER (PLAYGROUND) IS SIMPLY THERE FOR
+// TESTING AND PLAYING WITH THE RESPECTIVE MODULE OR API SO AS TO BECOME
+// COMFORTABLE WORKING WITH THEM.
+// - arrC
+
 'use strict';
 var _ = require('lodash');
 let chance = require('chance').Chance();

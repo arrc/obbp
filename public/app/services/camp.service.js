@@ -30,6 +30,32 @@
 			return dfd.promise;
 		};
 
+		// retrive camps PUBLIC
+		o.retrivePublicCamps = function(){
+			var dfd = $q.defer();
+			$http.get('/camps')
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
+		// retrive camps LOCAL
+		o.retriveLocalCamps = function(){
+			var dfd = $q.defer();
+			$http.get('/api/camps')
+				.success(function(res){
+					dfd.resolve(res.data);
+				})
+				.error(function(error){
+					dfd.reject(error);
+				});
+			return dfd.promise;
+		};
+
 		// retrive single camp
 		o.retriveCamp = function(campId){
 			var dfd = $q.defer();

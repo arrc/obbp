@@ -36,6 +36,16 @@
       });
     };
 
+// retrive camps
+    _this.retrivePublicCamps = function(){
+      Camp.retrivePublicCamps().then(function(data){
+        _this.camps = data;
+        console.log('Camps: \t', _this.camps);
+      }, function(error){
+        console.error(error);
+      });
+    };
+
 // retrive camp and update camp
     _this.retriveCamp = function(camp){
       ngDialog.open({

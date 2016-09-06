@@ -1,4 +1,4 @@
-<section class="row" ng-controller="CampCtrl as vm" ng-init="vm.retriveCamps()">
+<section class="row" ng-controller="CampCtrl as vm" ng-init="vm.retrivePublicCamps()">
   <div class="large-12 columns admin-camps-container">
 
     <h3>Camps</h3>
@@ -28,9 +28,7 @@
 
             <!-- Tools -->
             <div class="tools right">
-              <i class="fa fa-folder-open-o" title="View camp detail" ng-click="vm.retriveCamp(camp)"></i>
-              <i class="fa fa-edit" title="Edit camp details" ng-click="vm.updateCampModal(camp)"></i>
-              <i class="fa fa-trash" title="Delete camp" ng-click="vm.deleteCamp(camp)"></i>
+
             </div>
           </section>
         </div>
