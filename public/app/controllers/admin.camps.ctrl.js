@@ -36,7 +36,7 @@
       });
     };
 
-// retrive camps
+// retrive public camps
     _this.retrivePublicCamps = function(){
       Camp.retrivePublicCamps().then(function(data){
         _this.camps = data;

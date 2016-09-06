@@ -28,6 +28,7 @@
 
         <!-- messages list -->
         <section class="messages-list-container">
+          <p class="text-center" ng-if="vm.messageCount === 0">There are no messages for you at this moment.</p>
           <section class="mlc-single-message" ng-repeat="message in vm.messages">
             <p class="single-message-text">{{ message.message }}</p>
             <section class="clearfix single-message-meta">
@@ -37,6 +38,49 @@
             </section>
           </section>
         </section>
+      </div>
+    </div>
+
+    <!-- upcoming camps in user locality -->
+    <div class="row">
+
+      <div class="large-9 large-centered columns all-messages-container">
+        <hr>
+        <section class="clearfix amc-title-container">
+          <h2 class="left  amc-title">LOCAL CAMPS</h2>
+          <h2 class="right amc-count">{{ camp.length }}</h2>
+        </section>
+        <ul class="small-block-grid-2 admin-camps-list-container">
+          <li  ng-repeat="camp in vm.camps">
+            <div class="camp-object">
+              <!-- Title -->
+              <section class="title">
+                <p>{{ camp.title }}</p>
+              </section>
+
+              <!-- Description -->
+              <!-- <section class="description">
+                <p>{{ camp.description }}</p>
+              </section> -->
+
+              <!-- Meta tools wrapper -->
+              <section class="meta-tools-wrapper clearfix">
+                <!-- Meta -->
+                <div class="meta left">
+                  <!-- state --> <span class="state"><i class="fa fa-map-marker"></i> {{ camp.state }}</span> <br>
+                  <!-- date --> <span class="date"><i class="fa fa-calendar-o"></i> {{ camp.date }}</span>
+                  <!-- time --> <span class="time"><i class="fa fa-clock-o"></i> {{ camp.time }}</span>
+                </div>
+
+                <!-- Tools -->
+                <div class="tools right">
+
+                </div>
+              </section>
+            </div>
+
+          </li>
+        </ul>
       </div>
     </div>
     <!-- <hr>  <pre class="row">{{ vm.user | json }}</pre> -->

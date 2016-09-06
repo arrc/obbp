@@ -1,8 +1,10 @@
 (function() {
   'use strict';
-	var UserCtrl = function($http, $state, $window, $timeout, State, User, Auth, ngNotify, FileUploader, Upload){
+	var UserCtrl = function($http, $state, $window, $timeout, State, User, Auth, ngNotify, FileUploader, Upload, Camp){
 		var _this = this;
     var token = Auth.getToken();
+
+    _this.camps = []; // all local camps
   // State
     _this.states = State.state();
     _this.user = {};
@@ -12,6 +14,14 @@
       console.log(data);
       _this.user = data;
       _this.profileData = data;
+    }, function(error){
+      console.error(error);
+    });
+
+    // retrive local camps
+    Camp.retriveLocalCamps().then(function(data){
+      _this.camps = data;
+      console.log('Camps: \t', _this.camps);
     }, function(error){
       console.error(error);
     });
@@ -125,6 +135,7 @@
     'ngNotify',
     'FileUploader',
     'Upload',
+    'Camp',
 		UserCtrl
 	]);
 })();
