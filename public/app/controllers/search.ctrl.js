@@ -6,10 +6,13 @@
     _this.test = "this a search page.";
     _this.states = State.state();
     _this.results = [];
+    _this.resultsCount = '';
 
     _this.search = function(){
       Search.search(_this.searchForm).then(function(data){
         _this.results = data;
+        _this.resultsCount = _this.results.length;
+        console.log(_this.results.length, _this.resultsCount);
       });
     };
 

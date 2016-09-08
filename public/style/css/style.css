@@ -490,7 +490,9 @@ pre {
   font-family: 'Lato-Bold', Helvetica, Arial; }
 
 .search-divider {
+  font-family: 'Raleway', Helvetica, Arial;
   height: 50px;
+  line-height: 50px;
   background-color: #DDD5D3; }
 
 .search-container {
