@@ -265,6 +265,9 @@ footer {
     color: #999;
     font-family: 'Raleway', Helvetica, Arial; }
 
+.ob_public_camps {
+  background: #e8e8e8; }
+
 @font-face {
   font-family: 'Arvo';
   src: url("../fonts/Arvo/Arvo-Regular.ttf"); }
@@ -496,7 +499,7 @@ pre {
   background-color: #DDD5D3; }
 
 .search-container {
-  background: #F5F5F5;
+  background: #e8e8e8;
   height: 150px;
   position: relative;
   -webkit-transform-style: preserve-3d;
