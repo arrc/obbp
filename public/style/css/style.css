@@ -530,6 +530,10 @@ pre {
     color: #A34C4C;
     font-family: 'Lato-Bold', Helvetica, Arial; }
 
+.ob_empty_result {
+  margin-top: 50px;
+  font-family: 'Lato-Bold'; }
+
 .user-profile-container {
   width: 230px;
   text-align: center;

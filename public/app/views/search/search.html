@@ -40,6 +40,7 @@
 
 <!-- results -->
   <section class="row">
+    <p class="text-center ob_empty_result" ng-if="vm.resultsCount === 0">No users found for selected blood group in selected state at this moment.</p>
     <ul class="large-block-grid-4">
       <li ng-repeat="result in vm.results">
         <!-- <div>
