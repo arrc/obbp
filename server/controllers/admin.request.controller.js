@@ -11,7 +11,7 @@ exports.retriveRequest = function(req, res){
 
 // All request
 exports.retriveRequests = function(req, res){
-  Request.find({}).populate('user').exec(function(err, docs){
+  Request.find({}).sort({created: -1}).populate('user').exec(function(err, docs){
     if (err || !docs) {
       return res.status(400).json({message: 'Error finding docs.'});
     } else {
