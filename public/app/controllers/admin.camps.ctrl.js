@@ -44,11 +44,14 @@
 
 // retrive public camps
     _this.retrivePublicCamps = function(){
+      _this.loading = true;
       Camp.retrivePublicCamps().then(function(data){
         _this.camps = data;
         console.log('Camps: \t', _this.camps);
+        _this.loading = false;
       }, function(error){
         console.error(error);
+        _this.loading = false;
       });
     };
 

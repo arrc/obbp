@@ -3,16 +3,18 @@
 	var SearchCtrl = function($http, Auth, ngNotify, ngDialog, State, User, Search){
 		var _this = this;
     _this.user = {};
-    _this.test = "this a search page.";
     _this.states = State.state();
     _this.results = [];
     _this.resultsCount = '';
+    _this.loading = false;
 
     _this.search = function(){
+      _this.loading = true;
       Search.search(_this.searchForm).then(function(data){
         _this.results = data;
         _this.resultsCount = _this.results.length;
         console.log(_this.results.length, _this.resultsCount);
+        _this.loading = false;
       });
     };
 
@@ -30,6 +32,7 @@
             var messageData = lodash.extend($scope.messageData, {receiver: $scope.userId});
             Message.sendMessage(messageData).then(function(data){
               console.log("Message sent");
+              $scope.closeThisDialog();
             });
           };
         }]

@@ -5,6 +5,7 @@
     <p>Upcoming blood donation camps all accross the country.</p>
 
     <ul class="small-block-grid-2 admin-camps-list-container">
+      <div ng-if="vm.loading" class="ob_loader text-center"><i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i></div>
       <li  ng-repeat="camp in vm.camps">
         <div class="camp-object">
           <!-- Title -->

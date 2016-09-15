@@ -42,6 +42,7 @@
   <section class="row">
     <p class="text-center ob_empty_result" ng-if="vm.resultsCount === 0">No users found for selected blood group in selected state at this moment.</p>
     <ul class="large-block-grid-4">
+      <div ng-if="vm.loading" class="ob_loader text-center"><i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i></div>
       <li ng-repeat="result in vm.results">
         <!-- <div>
           <h3 ng-click="vm.dialog(result)">{{ result.username }}</h3>
