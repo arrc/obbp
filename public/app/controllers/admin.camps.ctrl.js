@@ -4,6 +4,9 @@
 		var _this = this;
     _this.camps = []; // all camps
     _this.camp = {}; // single camp
+    _this.loading = false;
+
+    // _this.reload = _this.retriveCamps();
 
 // State
     _this.state = State.state();
@@ -18,6 +21,7 @@
             console.log($scope.campFormData);
             Camp.createCamp($scope.campFormData).then(function(data){
               console.log(data);
+              $scope.closeThisDialog();
             }, function(error){
               console.error(error);
             });
@@ -28,7 +32,9 @@
 
 // retrive camps
     _this.retriveCamps = function(){
+      _this.loading = true;
       Camp.retriveCamps().then(function(data){
+        _this.loading = false;
         _this.camps = data;
         console.log('Camps: \t', _this.camps);
       }, function(error){
@@ -66,6 +72,7 @@
           $scope.updateCamp = function(){
             Camp.updateCamp($scope.camp).then(function(data){
               console.log('updated camp',data);
+              $scope.closeThisDialog();
             }, function(error){
               console.error(error);
             });

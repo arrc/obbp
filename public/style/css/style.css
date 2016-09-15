@@ -47,6 +47,24 @@ pre {
 .ob_margin {
   margin: 30px; }
 
+.ob_reload_icon {
+  cursor: pointer;
+  color: gray;
+  line-height: 1.3em;
+  font-size: 1.3em;
+  margin-right: 10px;
+  display: inline-block;
+  transition: all 0.6s; }
+  .ob_reload_icon:hover {
+    color: lightgray;
+    display: inline-block;
+    cursor: pointer;
+    transform: rotate(180deg);
+    transition: all 0.2s; }
+
+.ob_loader {
+  color: gray; }
+
 label {
   text-transform: uppercase;
   color: #A34C4C;
