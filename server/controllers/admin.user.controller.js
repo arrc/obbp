@@ -7,7 +7,8 @@ let User = require('../models/user.model.js'),
   _ = require('lodash');
 
 exports.retriveUsers = function(req, res){
-  User.find({'isActive': false}).exec(function(err, usersDoc){
+  // User.find({'isActive': false}).exec(function(err, usersDoc){
+  User.find().exec(function(err, usersDoc){
     if (err || !usersDoc) {
       return res.status(400).json({message: 'Error finding users.'});
     } else {

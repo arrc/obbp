@@ -57,7 +57,7 @@ exports.retriveCamp = function(req, res){
 
 // All camps
 exports.retriveCamps = function(req, res){
-  Camp.find({}).exec(function(err, camps){
+  Camp.find({}).sort({datetime: -1}).exec(function(err, camps){
     if (err || !camps) {
       return res.status(400).json({message: 'Error finding camps.'});
     } else {
