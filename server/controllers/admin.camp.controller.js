@@ -11,6 +11,7 @@ exports.createCamp = function(req, res){
   var b = req.body;
   var datetime = moment(b.date + " " + b.time, "DD/MM/YYYY hh:mm:a").toISOString();
   var data = {
+    title: b.title,
     state: b.state,
     address: b.address,
     googleMapUrl: b.googleMapUrl,
@@ -33,6 +34,7 @@ exports.updateCamp = function(req, res){
   var b = req.body;
   var datetime = moment(b.date + " " + b.time, "DD/MM/YYYY hh:mm:a").toISOString();
   var data = {
+    title: b.title,
     state: b.state,
     address: b.address,
     googleMapUrl: b.googleMapUrl,
