@@ -2,12 +2,14 @@
   'use strict';
 	var AdminUsersCtrl = function($http, ngNotify, ngDialog, lodash, NgTableParams, User, Admin){
 		var _this = this;
-    _this.test = "this is a test message from AdminUsersCtrl";
+    _this.loading = false;
 
     _this.retriveUsers = function(){
+      _this.loading = true;
       Admin.retriveUsers().then(function(data){
         _this.users = data;
         _this.tableParams = new NgTableParams({}, {dataset: data});
+        _this.loading = false;
       }, function(err){
         ngNotify.set(err.message, "error");
       });
@@ -22,6 +24,7 @@
             console.log($scope.user);
             Admin.updateUser($scope.user).then(function(data){
               console.log(data);
+              $scope.closeThisDialog();
             });
           };
         }]
@@ -38,6 +41,7 @@
             var messageData = lodash.extend($scope.messageData, {receiver: $scope.userId});
             Message.sendMessage(messageData).then(function(data){
               console.log("Message sent");
+              $scope.closeThisDialog();
             });
           };
         }]

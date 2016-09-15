@@ -8,6 +8,7 @@
           <input type="text" class="aut-controls-search" ng-model="vm.userSearch" placeholder="Search users">
         </div>
         <div class="right">
+          <span class="ob_reload_icon right" ng-click="vm.retriveUsers()"><i class="fa fa-refresh fa-2x"></i></span>
           <!-- <ul class="button-group toggle auc-controls-toggles" data-toggle="buttons-radio">
             <li>
               <input type="radio" id="auc-all-users" name="r-group" data-toggle="button">
@@ -22,6 +23,7 @@
       </section>
 
       <ul class="small-block-grid-2 admin-users-list-container">
+        <div ng-if="vm.loading" class="ob_loader text-center"><i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i></div>
         <li ng-repeat="user in vm.users | filter:vm.userSearch">
           <!-- user object -->
           <div class="aulc-user-object clearfix">

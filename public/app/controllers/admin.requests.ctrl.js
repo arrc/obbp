@@ -2,11 +2,13 @@
   'use strict';
 	var AdminRequestsCtrl = function($http, ngDialog, ngNotify, Request){
 		var _this = this;
-    _this.test = "this is a test message from AdminRequestsCtrl";
+    _this.loading = false;
 
     _this.retriveRequests = function(){
+      _this.loading = true;
       Request.retriveRequests().then(function(data){
         _this.requests = data;
+        _this.loading = false;
       });
     };
 
@@ -20,6 +22,7 @@
             Request.updateRequest($scope.request).then(function(data){
               console.log(data);
               ngNotify.set('Update request successfully ', 'success');
+              $scope.closeThisDialog();
             });
           };
         }]
@@ -44,6 +47,7 @@
             var messageData = lodash.extend($scope.messageData, {receiver: $scope.userId});
             Message.sendMessage(messageData).then(function(data){
               console.log("Message sent");
+              $scope.closeThisDialog();
             });
           };
         }]
