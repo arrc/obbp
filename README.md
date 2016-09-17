@@ -1,32 +1,38 @@
-# Online Blood Bank Project (alpha)
+# Online Blood Bank Project (Obbp). [live](http://obbp.arrc.in)
 
-It is a college project for final year b-etch students.
-This project is going to be based completely in JavaScript.
-
-Admin section:
+### Admin section
   - approve user
   - process blood request
   - search users
   - manage camp schedules
-  - manage blood stock details
-  - statistics
-  - ping about upcoming blood camps
 
-Public:
-  - search donors
-  - request blood
-  -
+### Public
+  - search donors.
+  - request blood.
+  - view upcoming camps details.
+  - Create and edit own profile.
 
-Donor:
-  - create profile
-  - blood donation camp
-
-# TODO
-  - error handling
+### TODO
   - refactoring
-  - validation
-  - layout
-  - notifications
-  - animations
-  - pub-sub
-  - image upload
+  - server side validation
+
+## Home page
+![homepage of obbp](/screenshots/home.png?raw=true)
+
+## Search results for matching donor
+![search results](/screenshots/search_results.png?raw=true)
+
+## Send message to donor for request his/her blood
+![send message to user](/screenshots/serach_send_message.png?raw=true)
+
+## User profile
+![user profile](/screenshots/user_profile.png?raw=true)
+
+## Admin: manage pending blood requests
+![search results](/screenshots/admin_blood_request_edit.png?raw=true)
+
+## Admin: manage users
+![admin section for managing users](/screenshots/admin_user_edit.png?raw=true)
+
+## Admin: upcoming blood donation camps
+![create and edit camps](/screenshots/admin_camp_edit.png?raw=true)
