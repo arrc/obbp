@@ -87,10 +87,11 @@ exports.profileUpdate = function(req, res){
       bloodGroup: b.bloodGroup
   };
 
-  User.findOne({'username': req.user.username}).exec(function(err, userDoc){
+  User.findOne({'username': req.user.username}).select('-password').exec(function(err, userDoc){
     if (err || !userDoc){
       return res.status(400).json({message: 'Failed to load user'});
     } else {
+      // _.chain(data).extend({hi: 'erer'}).omit('name').value();
       userDoc = _.extend(userDoc, data);
       userDoc.save(function(err, updatedDoc){
         if (err || !updatedDoc){
